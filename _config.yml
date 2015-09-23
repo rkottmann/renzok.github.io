@@ -1,0 +1,16 @@
+# Site settings
+title: Thought.out.printf()
+#email: your-email@domain.com
+description: > # this means to ignore newlines until "baseurl:"
+  Becoming a literate developer, building common understanding.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+twitter_username: renzokott
+github_username:  renzok
+
+# Build settings
+#markdown: kramdown
+
+markdown: redcarpet
+redcarpet:
+    extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
