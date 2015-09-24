@@ -115,10 +115,10 @@ drwxrwxrwt 11 root       root        12K Sep 20 13:48 ..
 -rw-r--r--  1 dockmaster dockmaster    0 Sep 20 13:47 test-file
 ```
 
-So, in step 1 we create a user and group with name *dockmaster* and
+Inn step 1 we create a user and group with name *dockmaster* and
 uid/gid *1496*. We then create a directory
 */tmp/common-group-container-dir/* make it writable for the group and
-add the setgid bit with *chmod g+ws*. Lastly, we make *dockaster* the
+add the setgid bit with *chmod g+ws*. Lastly, we make *dockmaster* the
 user and group owner of that directory.
 
 The final 3rd step demonstrates the effect of running a container
@@ -136,7 +136,6 @@ this case.
    [basic security advice](https://github.com/docker/docker-bench-security)
    and
    [docker best practice](https://docs.docker.com/articles/dockerfile_best-practices/#user).
-   .
 
 # Summary
 
