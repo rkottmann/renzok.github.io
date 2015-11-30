@@ -70,11 +70,14 @@ vom [Agile Manifesto](http://agilemanifesto.org/)
 
 # Veranstaltungsplan und Projektarbeit
 
-* Dezember im wesentlichen Vorlesungen
+* [Hier ist der Plan ](https://www.dropbox.com/s/rkcxat05a04jou5/veranstaltungsplan.pdf?dl=0)
+  * Dezember im wesentlichen Vorlesungen
 * Januar gemeinsame Projektarbeit
     * d.h. ich mache auch **mein** Projekt
     * iterative Erweiterung
 	* anhand dessen weitere Konzepte erklaert werden
+* [So sieht die Projektarbeit aus](https://www.dropbox.com/s/4ba796u4q9boyre/datenbanken-projekt.pdf?dl=0)
+	
 
 ---
 class: middle, center
