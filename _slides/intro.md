@@ -158,12 +158,12 @@ Man unterscheidet Datensammlungen häufig anhand des vorliegenden Strukturierung
 * unstrukturierte Daten
     * Beispiele: Dokumente, beliebige Texte, Grafiken
 * semistrukturierte Daten
-    * fuehrenn einen Teil der Strukturinformationen mit sich
-    * jedoch nicht zwingend einer allgemeinen formalisierten Struktur entsprechen müssen
+    * fuehren einen Teil der Strukturinformationen mit sich
+    * muessen keiner allgemeinen formalisierten Struktur entsprechen
         * Beispiele: Daten gespeichert in Extensible Markup Language (XML), JSON oder CSV
 
 * strukturierte Daten
-   * Weisen gemäß einem Datenmodell gleiche Struktur auf
+   * Muessen gemäß einem Datenmodell gleiche Struktur haben
    * Beispiel: Datenbank
 
 ---
