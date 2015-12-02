@@ -2,7 +2,7 @@
 #
 ---
 class: center, middle
-# Module Datenbanken
+# Modul Datenbanken
 ## IFI Wintersemester 2015/16
 
 ---
