@@ -66,8 +66,8 @@ mustermann;erika;;Bremen;436654
 
 --
 1. Hohe Datenintegrität bzw. Konsistenz
-2. Mehere Nutzer können gleichzeitg an den selben Daten arbeiten
-3. Effziente Suche in grossen Daten
+2. Mehrere Nutzer können gleichzeitg an den selben Daten arbeiten
+3. Effiziente Suche in grossen Daten
 
 ---
 
@@ -325,7 +325,7 @@ realen Welt mittels Daten
 
 ## Integritätsbedingungen
 
-* Bestimmung von ein-eindeutigen tupeln
+* Bestimmung von ein-eindeutigen Tupeln
 
 * Einschränkungen vom Wertbereich bestimmter Datentypen
 
@@ -427,9 +427,9 @@ Antwort:
 
 * Semantischer Datenbankentwurf 
 
-  * unabhängig von konkreten Datenbank-spezifischen modellen
+  * unabhängig von konkreten Datenbank-spezifischen Modellen
 
-  * dienen zum Entwurf von relationalen-, Netzwerk- oder
+  * dienen zum Entwurf von relationalen, Netzwerk- oder
     Objekt-Datenbanken
 
 * Graphisch
@@ -496,7 +496,7 @@ werden.
   
 # Notationen
 
-Es gibt verschiedene Formen ERM zu notieren (textuell und/oder graphisch) einige sind:
+Es gibt verschiedene Formen ERM zu notieren (textuell und/oder graphisch):
 
 * [Chen Notation](https://de.wikipedia.org/wiki/Chen-Notation)
 * [Crow Foot's](https://de.wikipedia.org/wiki/Martin-Notation)
@@ -576,16 +576,16 @@ Exkurs:
 
 Natural Keys
 
-Ein natürlicher Schlüssel ist die Menge der Attributen einer Entität, die diese Entität eindeutig identifiziert
+Ein natürlicher Schlüssel ist die Menge der Attribute einer Entität, die diese Entität eindeutig identifiziert
 (natürlich da es nur einer Auswahl der schon eh definierten Attribute braucht).
 
 	* Diese können an der Realität überprüft werden
 
-"Intelligente Schlüssel" basieren häufig auf Industriestandards und können mit Hilfe externer Resource überprüft werden. Z.B: ISBN, EAN, VIN, UPC... 
+"Intelligente Schlüssel" basieren häufig auf Industriestandards und können mit Hilfe externer Ressourcen überprüft werden. Z.B: ISBN, EAN, VIN, UPC... 
 
 Artificial Keys
 
-Artifizielle, synthetische Schlüssel sind zusätzlich hinzugefügt Attribute die für die eindeutige Identifizierung einer Entität benutzt werden. 
+Artifizielle, synthetische Schlüssel sind zusätzlich hinzugefügte Attribute die für die eindeutige Identifizierung einer Entität benutzt werden. 
 
 	* Können nicht an der Realität überprüft werden
 
@@ -613,7 +613,7 @@ Kardinalitäten
 Zweistellige Beziehungen
 
 
-Zur Erläuterung einer Beziehung ist es wichtig die Beziehung getrennt nach beiden Richtungen zu lesen.
+Zur Erläuterung einer Beziehung ist es wichtig, die Beziehung getrennt nach beiden Richtungen zu lesen.
 
 Vom ERM zu einem Datenbankschema
 
