@@ -198,68 +198,68 @@ den Daten
 
 * Pflege von strengen Konsistenzbedingungen hinsichtlich
 
-  * Datentypen,
+  * Datentypen
 
   * Redundanzfreiheit
 
-  * Beziehungen der Daten untereinander.
+  * Beziehungen der Daten untereinander
 
 * Transaktionen
 
   * Werden mehrere Operationen hintereinander ausgeführt, so muss die
-	Datenintegrität gewahrt sein.
+	Datenintegrität gewahrt sein
 
-  * Beispiel: Kontobuchungen.
+  * Beispiel: Kontobuchungen
 
 ---
 # Mehrbenutzerfähigkeit
 
-* Viele Programme greifen gleichzeitig auf die gleichen Daten zu.
+* Viele Programme greifen gleichzeitig auf die gleichen Daten zu
 
-  * Erkennen und Auflösen von Schreibkonflikten.
+  * Erkennen und Auflösen von Schreibkonflikten
 
 * Zugriffsrechteverwaltung:
 
-  * Nicht jeder Benutzer darf alle Daten sehen oder modifizieren.
+  * Nicht jeder Benutzer darf alle Daten sehen oder modifizieren
 
 
 ---
 # Schichtentrennung
 
 * Physische Trennung von Datenbank und Anwendungssystemen auf
-     verschiedener Hardware.
+     verschiedener Hardware
 
 * Plattformunabhängigkeit:
 
   * Eine Datenbank darf nicht von einem bestimmten Betriebssystem
-     abhängen.
+     abhängen
 
 * Möglichkeit, eine zentrale Datenbank für viele Anwendungen zu
-schaffen.
+schaffen
 
 * Trennung von Datenbank und Anwendungslogik:
 
   * Die Daten müssen unabhängig von einer konkreten Anwendung
-  gespeichert sein.
+  gespeichert sein
 
   Programme sind vergänglich und austauschbar, Daten und deren
-  Struktur sind wesentlich langlebiger und wertvoller.
+  Struktur sind wesentlich langlebiger und wertvoller
 
 ---
 
 # Schnittstellen
 
-* Komplexe Suchanfragen erfordern eine eigene Suchanfragesprache.
+* Komplexe Suchanfragen erfordern eine eigene Suchanfragesprache
 
 * Vielfältige und offene Schnittstellen zu allen möglichen
-Programmiersprachen oder Anwendungen.
+Programmiersprachen oder Anwendungen
 
 ---
 
 # Datensicherheit
 
 * Alle Änderungen müssen sofort dauerhaft gespeichert sein ohne
-Datenverlust.
+Datenverlust
 
 ---
 
@@ -294,12 +294,12 @@ realen Welt mittels Daten
 
 ## Generische Datenstruktur
 
-* Relationen mit eindeutigen Namen,
+* Relationen mit eindeutigen Namen
 
   * jede Relation ist eine Menge von Tupeln (Datensätzen) gleichen
-  Typs.
-  * 
-  Die Struktur ist insofern generisch, als die Relationen und ihre
+  Typs
+
+  * Die Struktur ist insofern generisch, als die Relationen und ihre
   Attribute (Spalten) beliebig gewählt werden können bzw. beim
   Einrichten der Datenbank angegeben werden müssen.
 
@@ -374,7 +374,6 @@ class: center, middle
 
 4. System zur Verarbeitung und Speicherung
   * Datenbank im Betrieb: PostgreSQL
-
 
 ---
 
