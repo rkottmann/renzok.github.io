@@ -137,9 +137,9 @@ Gabler Wirtschaftlexikon Daten im Kontext der Wirschaftinformatik:
 
 # Daraus kann man folgern, dass Daten
 
-1. semantisch:
+1. semantisch
    * Informationen sind, welche Fakten der realen Welt wiedergeben
-2.	syntaktisch:
+2.	syntaktisch
 	* eine kodierte digitale Folge von Zeichen sind, die nur in einem bestimmten Bedeutungskontext zu einer richtigen Interpretation führen
 
 ---
@@ -287,6 +287,7 @@ Huber;Ina;12345;FFM;0123/65235
 Lustig;Olga;12345;Frankfurt;0123/45456
 Mustermann;Erika;12345;Frankfurt;0123/45456
 Henseler;Herwig;26197;Großenkneten;04435/388486 (Fax:388487)
+Lustig;Peter;Frankfurt;0123/45456
 Huber;Ina;3454;Dresden;0283/11111
 Mustermann;Erika;;Bremen;436654
 ```

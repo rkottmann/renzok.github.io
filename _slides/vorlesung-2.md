@@ -62,30 +62,38 @@ mustermann;erika;;Bremen;436654
 
 
 ---
-# Was waere besser?
+# Was wäre besser?
 
 --
-1. Hohe Datenintegritaet bzw. Konsistenz
-2. Mehere Nutzer koennen gleichzeitg an den selben Daten arbeiten
+1. Hohe Datenintegrität bzw. Konsistenz
+2. Mehere Nutzer können gleichzeitg an den selben Daten arbeiten
 3. Effziente Suche in grossen Daten
 
 ---
 
-# Fuer Datenintegritaet:
+# Für Datenintegrität
 
-# Strukturierte Daten
+* Strukturierte Daten
 
-## Datenbank (DB)
-> = Schema („Modell“, „Metadaten“) + Daten („Extension“, „Nutzdaten“)
+* (relational) Datenbank (DB)
 
-Modell und Daten sind konzptionell getrennt!
+ * Schema („Modell“, „Metadaten“)
+
+ * \+ Daten („Extension“, „Nutzdaten“)
+
+  * Modell und Daten sind konzeptionell getrennt!
 
 ---
 
-# Fuer Effizienz und Mehrbenutzer
+# Für Effizienz und Mehrbenutzer
 
-## Datenbankmanagementsystem (DBMS)
-> = Softwaresystem, das Benutzern das Erstellen und die Pflege einer DB ermöglicht und Werkzeuge für alle Aspekte der Datenverwaltung bereitstellt.
+* Datenbankmanagementsystem (DBMS)
+
+* Softwaresystem 
+
+    * ermöglicht Erstellen und die Pflege einer DB
+
+    * stellt Werkzeuge für alle Aspekte der Datenverwaltung bereit
 
 
 ---
@@ -93,14 +101,17 @@ class: split-50
 # Datenbanksystem
 
 .column[
-## Datenbank (DB)
-> = Schema („Modell“, „Metadaten“) + Daten („Extension“, „Nutzdaten“)
+* Datenbank (DB)
 
-## Datenbankmanagement&shy;system (DBMS)
-> = Softwaresystem, das Benutzern das Erstellen und die Pflege einer DB ermöglicht und Werkzeuge für alle Aspekte der Datenverwaltung bereitstellt.
+  Schema + Daten
 
-## Datenbanksystem
->= DBMS + DB
+* Datenbankmanagement&shy;system (DBMS)
+
+  Softwaresystem zur Verwaltung
+
+* Datenbanksystem
+
+  DBMS + DB(s)
 ]
 .column[
 ![test](/img/datenbanksystem-concept.png)
@@ -124,19 +135,34 @@ software available.”
 
 ---
 
-Heutige Anforderungen an Datenbanksysteme
+# Heutige Anforderungen an Datenbanksysteme
 
 1. Datenhaltung
 1. Skalierbarkeit
+1. Anfrageoptimierung (Performanz)
+1. Datenintegrität
+1. Mehrbenutzerfähigkeit
+1. Schichtentrennung 
+1. Schnittstellen
+1. Datensicherheit
 
 ---
 # Datenhaltung
-*	Große Datenmengen, welche nicht alle im Hauptspeicher gehalten werden können
-*	Kein Limit für die Anzahl der Zeilen in einer Tabelle
-*	Permanente Erreichbarkeit der Datenbank
-*	Verwendung mehrerer Tabellen.
-  * Einfache Verwaltungsmöglichkeiten notwendig: Anlegen, ändern, löschen von Tabellen.
-*	Komplexe Datenmanipulationen: Anlegen, ändern, löschen von vielen Datensätzen gemäß nicht-trivialer Bedingungen.
+
+* Große Datenmengen, welche nicht alle im Hauptspeicher gehalten
+werden können
+
+* Kein Limit für die Anzahl der Zeilen in einer Tabelle
+
+* Permanente Erreichbarkeit der Datenbank
+
+* Verwendung mehrerer Tabellen.
+
+  * Einfache Verwaltungsmöglichkeiten notwendig: Anlegen, ändern,
+  löschen von Tabellen.
+
+* Komplexe Datenmanipulationen: Anlegen, ändern, löschen von vielen
+Datensätzen gemäß nicht-trivialer Bedingungen.
 
 ---
 #	Skalierbarkeit
@@ -159,6 +185,7 @@ Speicherplatz.
 
 ---
 # Anfrageoptimierung (Performanz)
+
 * Effiziente Abarbeitung von Suchanfragen durch schnelles Suchen in
 den Daten
 
@@ -166,19 +193,23 @@ den Daten
   zu müssen.
 
 ---
-#	Datenintegrität
 
-*	Pflege von strengen Konsistenzbedingungen hinsichtlich
+# Datenintegrität
 
-	* Datentypen,
-	* Redundanzfreiheit
-	* Beziehungen der Daten untereinander.
+* Pflege von strengen Konsistenzbedingungen hinsichtlich
 
-*	Transaktionen
+  * Datentypen,
 
-	* Werden mehrere Operationen hintereinander ausgeführt, so muss
-	die Datenintegrität gewahrt sein.
-	* Beispiel: Kontobuchungen.
+  * Redundanzfreiheit
+
+  * Beziehungen der Daten untereinander.
+
+* Transaktionen
+
+  * Werden mehrere Operationen hintereinander ausgeführt, so muss die
+	Datenintegrität gewahrt sein.
+
+  * Beispiel: Kontobuchungen.
 
 ---
 # Mehrbenutzerfähigkeit
@@ -193,7 +224,7 @@ den Daten
 
 
 ---
-# Schichtentrennung 
+# Schichtentrennung
 
 * Physische Trennung von Datenbank und Anwendungssystemen auf
      verschiedener Hardware.
@@ -234,6 +265,16 @@ Datenverlust.
 
 # Relationale Datenbank PostgreSQL
 
+![PostgresSQL logo](/img/postgres-logo.png)
+
+## http://www.postgresql.org/
+
+* Open Source
+
+* Sehr nah am SQL-Standard
+
+* Sehr gute Dokumentation
+
 ---
 
 # Datenmodell
@@ -266,7 +307,7 @@ realen Welt mittels Daten
 
 ## Operatoren
 
-* relatioanle Algebra
+* relationale Algebra
 
 * Daten
 
@@ -274,7 +315,7 @@ realen Welt mittels Daten
 
   * ändern
 
-  * loeschen
+  * löschen
 
   * abfragen
 
@@ -286,9 +327,18 @@ realen Welt mittels Daten
 
 * Bestimmung von ein-eindeutigen tupeln
 
-* Einschraenkungen vom Wertbereich bestimmter Datentypen
+* Einschränkungen vom Wertbereich bestimmter Datentypen
 
 https://de.wikipedia.org/wiki/Datenbankmodell
+
+---
+
+# Client / Server Sicht
+
+
+ ![Client/Server Sicht](/img/db-client-server.jpg)
+
+ [Abb. 2.1 aus Matthiessen](#referenzen)
 
 ---
 class: center, middle
@@ -362,14 +412,12 @@ Antwort:
 
 # Mini-Welt
 
-Wir wissen was wir wollen!
+(wenn) wir wissen was wir wollen, dann können wir folgende Fragen beantworten:
 
-* Welchen Ausschnitt der realen Welt?
-* Welche Aspekte Beruecksichtigen?
+* Welchen Ausschnitt der realen Welt brauchen wir?
+* Welche Aspekte müssen wir Berücksichtigen?
 
 ---
-
-Wir erzeugen einen Ausschnitt der realen Welt, eine Miniwelt.
 
 ![mini Welt](/img/mini-world.png)
 
@@ -377,10 +425,12 @@ Wir erzeugen einen Ausschnitt der realen Welt, eine Miniwelt.
 
 # Entity Relationship Modellierung (ERM)
 
-* Datenbankentwurf unabhängig von konkreten Datenbank-spezifischen modellen
+* Semantischer Datenbankentwurf 
+
+  * unabhängig von konkreten Datenbank-spezifischen modellen
 
   * dienen zum Entwurf von relationalen-, Netzwerk- oder
-    Objekt-Datenbanken verwendet werden.
+    Objekt-Datenbanken
 
 * Graphisch
 
@@ -404,6 +454,7 @@ da.
 * Beispiel: 
 
     Lehrer = Entitätstyp
+
     Renzo ~= Entität (ein spezieller Lehrender)
 
 ---
@@ -425,10 +476,21 @@ Die Auswahl eines oder meherer Attribute als Schlüssel legt fest, dass
 es keine zwei Entitäten eines Entitätstyp geben kann die identische
 Attributwerte haben.
 
-* Wichtige Eigenschaften:
+* Wichtige Eigenchaften:
 
   * Eindeutigkeit
   * Zuteilbarkeit
+
+---
+
+# Relationship (Beziehung)
+
+Verschiedene Entitäten können zueinander in Beziehung gesetzt
+werden. 
+
+* In jeder Beziehung haben Entitäten gewisse Rollen
+* Beziehungen können Eigenschaften (Attribute) haben
+* Beziehungen haben Kardinalitäten
   
 ---
   
@@ -436,22 +498,31 @@ Attributwerte haben.
 
 Es gibt verschiedene Formen ERM zu notieren (textuell und/oder graphisch) einige sind:
 
-	* Chen Notation
-	* Crow Foot's oder
-	* Unified Modelling Language (UML)
+* [Chen Notation](https://de.wikipedia.org/wiki/Chen-Notation)
+* [Crow Foot's](https://de.wikipedia.org/wiki/Martin-Notation)
+* [Unified Modelling Language](https://de.wikipedia.org/wiki/Unified_Modeling_Language) (UML)
 
 ---
 
-# Relationship (Beziehung)
+# Notation
 
-Verschiedene Entitäten können zueinander in Beziehung gesetzt
-werden. In jeder Beziehung haben Entitäten gewisse Rollen.
-
-Beziehungen können Eigenschaften (Attribute) haben.
-
+<table width="100%">
+  <tr>
+    <td>Entity</td>
+    <td><img src="/img/single-entity.jpg"/></td>
+  </tr>
+ <tr>
+    <td>Attribute</td>
+    <td><img src="/img/single-entity-attribute.jpg"/></td>
+  </tr>
+ <tr>
+    <td>Beziehungen/Relationship</td>
+    <td><img src="/img/entity-relationship.jpg"/></td>
+  </tr>
+</table>
 
 ---
-# Alternativer Blick
+# Alternativer Blick: Datenbankentwicklungszyklus
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/DatMod_v_semMod_zur_DBK.svg" alt="entwurfsmodell">
 
@@ -461,23 +532,42 @@ Beziehungen können Eigenschaften (Attribute) haben.
 # Structured Query Language (SQL)
 SQL ist eine Datenbanksprache 
 
-	1. zur Definition von Datenstrukturen/Modellen 
-	2. zum Bearbeiten (Einfügen, Verändern, Löschen) 
-	3. zum Abfragen von darauf basierenden Datenbeständen
-	4. zur Rechtevergabe
+1. zur Definition von Datenstrukturen/Modellen 
 
-Eigenschaften
+2. zum Bearbeiten (Einfügen, Verändern, Löschen) 
 
-	* basiert auf relationaler Algebra
-	* an English angelehnt
-	* Deklarativ und funktional
-	* Fast alle Datenbanken verstehen SQL
-	* Standardisiert
-	* 
-		* PostgreSQL hat einer der besten Umsetzungen
+3. zum Abfragen von darauf basierenden Datenbeständen
+
+4. zur Rechtevergabe
 
 ---
-# Danke fuer die Zusammenarbeit
+
+# SQL Eigenschaften
+
+* basiert auf relationaler Algebra
+
+* an English angelehnt
+
+* Deklarativ und funktional
+
+* Fast alle Datenbanken verstehen SQL
+
+* Standardisiert
+
+  * PostgreSQL hat einer der besten Umsetzungen
+
+---
+class: center, middle
+# Danke für die Zusammenarbeit
+
+---
+
+name: referenzen
+# Referenzen:
+
+* M. Unterstein and G. Matthiessen, Relationale Datenbanken und SQL in
+  Theorie und Praxis. Berlin, Heidelberg: Springer Berlin Heidelberg,
+  2012.
 
 ---
 
@@ -545,6 +635,5 @@ Beziehungen bei abhängigen Entitätstypen (weak entities)
 Eine Entität heißt abhängige Entität oder engl. weak entity, wenn diese nicht durch eigene Attribute identifiziert werden kann. 
 
 Beispiel: Kinder von Mitarbeitern, bei denen die Firma die Kindergeldzahlung verwaltet. Im Beispiel werden Kinder nur abhängig vom Mitarbeiter eindeutig identifiziert.
-
 
 
