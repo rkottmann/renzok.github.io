@@ -179,15 +179,20 @@ Es gibt verschiedene Formen ERM zu notieren (textuell und/oder graphisch):
 </table>
 
 ---
+class: split-60
 
 # Kardinilitaeten
 
-<img src="/img/crow-foot-notation-matthiessen-abb10-6.png"/>
+.column[
+<img src="/img/crow-foot-notation-matthiessen-abb10-6.png" />
+]
 
+.column[
 1. UML Notation
 2. Crow Foot
 3. Darstellung nach Chen
 4. Darstellung nach Zehn
+]
 
 [Abb. 10.6 aus Matthiessen](#referenzen)
 
@@ -221,8 +226,48 @@ SQL ist eine Datenbanksprache
   * PostgreSQL hat einer der besten Umsetzungen
 
 ---
+class: split-50
+# SQL Ueberblick
 
-Vorbereitungsaufgaben:
+.column[
+<a title="By Bagok (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ASQL.png"><img width="512" alt="SQL" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/SQL.png/512px-SQL.png"/></a>
+]
+
+.column[
+* DML = Data Manipluation Language:
+  Ändern, Einfügen, Löschen und lesender Zugriff
+* DDL = Data Defintion Language:
+  Definition des Datenbankschemas
+* DCL = Data Control Language:
+  Rechteverwaltung und Transaktionskontrolle
+]
+
+---
+class: split-50
+# DML: Create Table
+
+.column[
+![erd-teilnehmerinnen](/img/erd-teilnehmerinnen-only.png)
+]
+
+.column[
+```sql
+CREATE TABLE teilnehmer (
+--Spalten Name Datentyp,
+  vorname text,
+  nachname text,
+  matrikel_nr integer,
+  email text,
+  semester integer
+  
+);
+
+```
+]
+
+---
+
+# Vorbereitungsaufgaben:
 
 1. Wie aendert sich das ERM und die implementierung wenn folgende
 Anforderng hinzukommt:
@@ -232,10 +277,14 @@ Anforderng hinzukommt:
 2. Welche Datentypen gibt es schon in PostgreSQL?
 3. Kann man eigene Datentypen definieren?
    * Wenn ja, welche Moeglichkeiten gibt es?
+4. Welche weiteren SQL-Befehle fuer Datenmodell-Management gibt es
+noch?
+
+
 
 ---
 class: center, middle
-# Danke für die Zusammenarbeit
+# Erholsame Feiertage
 
 ---
 
