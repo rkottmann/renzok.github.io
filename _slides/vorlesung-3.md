@@ -115,7 +115,9 @@ da.
 # Attribute
 
 * Eigenschaften von Entitäten bzw. Entitätstypen werden durch Attribute beschrieben
-* Attribute haben einen Namen und eine Domaine (= Bestimmung der Wertmenge).
+* Attribute haben einen Namen und eine Domaine (= Bestimmung der
+Wertmenge).
+  * Domainen werden in ERM oft nicht explizit angegeben
 
 ---
 
@@ -129,7 +131,7 @@ Die Auswahl eines oder meherer Attribute als Schlüssel legt fest, dass
 es keine zwei Entitäten eines Entitätstyp geben kann die identische
 Attributwerte haben.
 
-* Wichtige Eigenchaften:
+* Wichtige Eigenschaften:
 
   * Eindeutigkeit
   * Zuteilbarkeit
