@@ -61,7 +61,7 @@ class: center, middle
 
 Welchen Zwecken soll die Erfassung aller Kursteilnehmenrinnen dienen?
 
-Die Teilnehmerinnen-Datenbank soll folgendes Ermoeglichen:
+Die Teilnehmerinnen-Datenbank soll folgendes Ermöglichen:
 
 * Informationsweitergabe an alle Teilnehmerinnen
 
@@ -109,10 +109,6 @@ da.
     Lehrer = Entitätstyp
 
     Renzo ~= Entität (ein spezieller Lehrender)
-
----
-
-Entitäten der Teilnehmerinnen [Mini-Welt](/slides/vorlesung-2.html#35)
 
 ---
 
@@ -181,7 +177,7 @@ Es gibt verschiedene Formen ERM zu notieren (textuell und/oder graphisch):
 ---
 class: split-60
 
-# Kardinilitaeten
+# Kardinalitäten
 
 .column[
 <img src="/img/crow-foot-notation-matthiessen-abb10-6.png" />
@@ -195,6 +191,13 @@ class: split-60
 ]
 
 [Abb. 10.6 aus Matthiessen](#referenzen)
+
+---
+class: center
+
+#ERM Teilnehmerinnen
+
+![entity relatioship diagram zur datebank-kurs teilnehmerinenn](/img/erd-teilnehmerinnen-attribute-rel.png)
 
 
 ---
@@ -227,7 +230,7 @@ SQL ist eine Datenbanksprache
 
 ---
 class: split-50
-# SQL Ueberblick
+# SQL Überblick
 
 .column[
 <a title="By Bagok (Own work) [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File%3ASQL.png"><img width="512" alt="SQL" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/SQL.png/512px-SQL.png"/></a>
@@ -244,7 +247,34 @@ class: split-50
 
 ---
 class: split-50
-# DML: Create Table
+# DDL: Create Table
+
+.column[
+![erd-teilnehmerinnen](/img/erd-teilnehmerinnen-only.png)
+]
+
+.column[
+```sql
+CREATE TABLE teilnehmer (
+--Spalten Name Datentyp,
+  vorname text,
+  nachname text,
+  matrikel_nr integer,
+  email text,
+  semester integer
+  
+);
+
+```
+]
+
+s. http://www.postgresql.org/docs/9.3/interactive/ddl-basics.html und http://www.postgresql.org/docs/9.3/interactive/sql-createtable.html
+
+
+---
+
+class: split-50
+# DDL: Create Table Primary Key
 
 .column[
 ![erd-teilnehmerinnen](/img/erd-teilnehmerinnen-only.png)
@@ -267,20 +297,77 @@ CREATE TABLE teilnehmer (
 
 ---
 
+class: split-50
+# DDL: Create Table Primary Key
+
+.column[
+![erd-teilnehmerinnen](/img/erd-teilnehmerinnen-only.png)
+]
+
+.column[
+```sql
+CREATE TABLE teilnehmer (
+--Spalten Name Datentyp,
+  vorname text,
+  nachname text,
+  -- Simpler (nicht bester Primary Key)
+  matrikel_nr integer PRIMARY KEY,
+  email text,
+  semester integer
+  
+);
+
+```
+]
+
+---
+
+class: split-30
+# DML: Daten Einfügen
+
+.column[
+![erd-teilnehmerinnen](/img/erd-teilnehmerinnen-only.png)
+]
+
+.column[
+```sql
+
+INSERT INTO teilnehmer
+  (vorname, nachname, matrikel_nr, email, semester)
+VALUES
+  ('renzo','kottmann',007,'renzo@007.bond', 0);
+
+
+```
+]
+
+s. http://www.postgresql.org/docs/9.3/interactive/dml-insert.html und http://www.postgresql.org/docs/9.3/interactive/sql-insert.html
+
+
+---
+
 # Vorbereitungsaufgaben:
 
-1. Wie aendert sich das ERM und die implementierung wenn folgende
+1. Wie ändert sich das ERM und die implementierung wenn folgende
 Anforderng hinzukommt:
-  * Die Datenbank soll fuer alle vergangenen und zukuenftigen
-  Datenbankkurse informationen speichern koennen
+  * Die Datenbank soll für alle vergangenen und zukünftigen
+  Datenbankkurse informationen speichern können
 
 2. Welche Datentypen gibt es schon in PostgreSQL?
 3. Kann man eigene Datentypen definieren?
-   * Wenn ja, welche Moeglichkeiten gibt es?
-4. Welche weiteren SQL-Befehle fuer Datenmodell-Management gibt es
+   * Wenn ja, welche Möglichkeiten gibt es?
+4. Welche weiteren SQL-Befehle für Datenmodell-Management (DDL) gibt es
 noch?
 
+---
 
+# Datenbank Einrichtung
+
+1. Installiere auf einem Rechner PostgreSQL version > 9.3
+2. Erstelle zwei User (role) A und B (mit Namen Deiner Wahl)
+3. Erstelle eine Datenbank die dem User A gehört
+4. Erstelle Tabellen die User A gehören und gib User B Leserechte
+   (SELECT permission) auf diesen Tabellen
 
 ---
 class: center, middle
@@ -294,72 +381,5 @@ name: referenzen
 * M. Unterstein and G. Matthiessen, Relationale Datenbanken und SQL in
   Theorie und Praxis. Berlin, Heidelberg: Springer Berlin Heidelberg,
   2012.
-
----
-
-Exkurs:
-
-
-Natural Keys
-
-Ein natürlicher Schlüssel ist die Menge der Attribute einer Entität, die diese Entität eindeutig identifiziert
-(natürlich da es nur einer Auswahl der schon eh definierten Attribute braucht).
-
-	* Diese können an der Realität überprüft werden
-
-"Intelligente Schlüssel" basieren häufig auf Industriestandards und können mit Hilfe externer Ressourcen überprüft werden. Z.B: ISBN, EAN, VIN, UPC... 
-
-Artificial Keys
-
-Artifizielle, synthetische Schlüssel sind zusätzlich hinzugefügte Attribute die für die eindeutige Identifizierung einer Entität benutzt werden. 
-
-	* Können nicht an der Realität überprüft werden
-
-
-Auto-Numbers (Increment, serials) sind schlicht keine relationale Schlüssel, werden aber oft als artificial keys benutzt.
-
-
-
-Natural KeyArtificial KeyTeil des DatenmodelsJaNein
-
-In der Realität verifizierbarJaNeinIn sich validierbarJaJa (z.B. bei check-digits)
-
----
-
-
-Entitätstyp:
-
-
-Entitätstyp mit Attributen:
-
-
-Beziehungen:
-Kardinalitäten
-
-Zweistellige Beziehungen
-
-
-Zur Erläuterung einer Beziehung ist es wichtig, die Beziehung getrennt nach beiden Richtungen zu lesen.
-
-Vom ERM zu einem Datenbankschema
-
-Auf dem Papier sehen sich die Darstellung vom Datenbankschema und ERM sehr ähnlich.
-
-Umsetzung von 1:m Beziehungen
-Von einem zu vielen.
-
-
-
-
-Umsetzung von n:m
-von vielen zu vielen
-
-
-Beziehungen bei abhängigen Entitätstypen (weak entities)
-
-
-Eine Entität heißt abhängige Entität oder engl. weak entity, wenn diese nicht durch eigene Attribute identifiziert werden kann. 
-
-Beispiel: Kinder von Mitarbeitern, bei denen die Firma die Kindergeldzahlung verwaltet. Im Beispiel werden Kinder nur abhängig vom Mitarbeiter eindeutig identifiziert.
 
 
