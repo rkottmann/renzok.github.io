@@ -23,7 +23,7 @@ class: center, middle
 # Beim letzten Mal besprochen
 
 * [Was sind Datenbanksysteme](/slides/vorlesung-2.html#12)
-* [Datenmodelle und relationales Datenmodell?](/slides/vorlesung-2.html#24)
+* [Datenmodelle und relationales Datenmodell](/slides/vorlesung-2.html#24)
 * [Entity Relationship Modellierung](/slides/vorlesung-2.html#37)
 
 
@@ -264,7 +264,6 @@ CREATE TABLE teilnehmer (
   matrikel_nr integer,
   email text,
   semester integer
-  
 );
 
 ```
@@ -291,7 +290,6 @@ CREATE TABLE teilnehmer (
   matrikel_nr integer,
   email text,
   semester integer
-  
 );
 
 ```
@@ -316,7 +314,6 @@ CREATE TABLE teilnehmer (
   matrikel_nr integer PRIMARY KEY,
   email text,
   semester integer
-  
 );
 
 ```
@@ -339,11 +336,19 @@ INSERT INTO teilnehmer
 VALUES
   ('renzo','kottmann',007,'renzo@007.bond', 0);
 
-
 ```
 ]
 
 s. http://www.postgresql.org/docs/9.3/interactive/dml-insert.html und http://www.postgresql.org/docs/9.3/interactive/sql-insert.html
+
+---
+
+# Teilnehmerinnen Datenbank
+
+* Erarbeitetes [Ergebnis dieser Vorlesung/Uebung](/slides/teilnehmer-erd-implementierung.sql)
+
+
+
 
 
 ---
