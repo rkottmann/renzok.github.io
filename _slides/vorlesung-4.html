@@ -1,0 +1,72 @@
+---
+test: test
+---
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vorlesung 3 - IFI Datanbank Kurs WS 2015/16</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif'; }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: normal;
+      }
+      li {
+      font-size: x-large;
+      margin-bottom: 1em;
+      font-color: red;
+      }
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono';
+      }
+
+img {
+    max-width: 100%;
+}
+      
+.column:first-of-type {float:left}
+.column:last-of-type {float:right}
+
+.split-30 .column:first-of-type {width: 30%}
+.split-30 .column:last-of-type {width: 70%}
+.split-40 .column:first-of-type {width: 40%}
+.split-40 .column:last-of-type {width: 60%}
+.split-50 .column:first-of-type {width: 50%}
+.split-50 .column:last-of-type {width: 50%}
+.split-60 .column:first-of-type {width: 60%; height: 100%}
+.split-60 .column:last-of-type {width: 40%; height: 100%}
+.split-70 .column:first-of-type {width: 70%}
+.split-70 .column:last-of-type {width: 30%}
+
+.split-80 .column:first-of-type {width: 80%}
+.split-80 .column:last-of-type {width: 20%}
+      
+      
+    </style>
+  </head>
+  <body>
+    {% assign file_name = page.path | split:"/" | last | split:"." | first %}
+
+    <textarea id="source">
+      {% include_relative {{ file_name}}.md %}
+      
+    </textarea>
+
+
+    
+    <script src="https://gnab.github.io/remark/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({
+      highlightLanguage: 'javascript',
+      highlightStyle: 'monokai'
+     });
+    </script>
+  </body>
+</html>
+ 
