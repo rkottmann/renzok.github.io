@@ -116,23 +116,6 @@ CREATE TABLE pizza (
 );
 ```
 ]
----
-class: split-50
-# Primary Keys
-
-.column[
-* Die Eindeutigkeit jedes Eintrags wird durch den "PRIMARY KEY" Ausdruck sichergestellt
-]
-
-.column[
-```sql
-CREATE TABLE pizza (
-  name text PRIMARY KEY 
-  -- name kann es nur einmal geben,
-  img text
-);
-```
-]
 
 ---
 class: split-50
