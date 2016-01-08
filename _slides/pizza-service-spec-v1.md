@@ -1,8 +1,8 @@
 ---
-title: "Pizza Service Specifikation"
+title: "Pizza Service Spezifikation"
 ---
 
-# Pizza Service Specifikation
+# Pizza Service Spezifikation
 
 Mama Mia!
 
