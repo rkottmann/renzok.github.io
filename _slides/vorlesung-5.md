@@ -185,7 +185,7 @@ SELECT category AS art, cost AS preis, size as groesse
 
 # Welche Getraenke sind groesser als 0.3L ?
 
-### Besssere da praeziserre Abfrage:
+### Besssere, da praezisere Abfrage:
 ~~~sql
 SELECT category AS art, cost AS preis, size as groesse
   FROM food_size_price
@@ -205,7 +205,7 @@ SELECT category AS art, cost AS preis, size as groesse
 # Zeige mir alle Getraenke-Groesse mit Masseinheit ?
 
 ~~~sql
-SELECT size || 'L'       
+SELECT size || 'L' AS groesse_einheit       
   FROM food_size_price
  WHERE category = 'beverage';
 ~~~
@@ -222,7 +222,7 @@ SELECT *
 ~~~sql
 SELECT *       
   FROM menu
-  order by num;
+  ORDER BY num;
 ~~~
 --
 ## und umgedrehte Reihenfolger
@@ -230,14 +230,14 @@ SELECT *
 ~~~sql
 SELECT *       
   FROM menu
-  order by num DESC;
+  ORDER BY num DESC;
 ~~~
 ---
 # Wievel Eintraege hat das Menu?
 ~~~sql
 SELECT count(*)       
   FROM menu
-  order by num DESC;
+  ORDER BY num DESC;
 ~~~
 ---
 # Abfragen ueber mehere Tabellen
