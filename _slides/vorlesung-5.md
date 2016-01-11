@@ -233,7 +233,7 @@ SELECT *
   ORDER BY num DESC;
 ~~~
 ---
-# Wievel Eintraege hat das Menu?
+# Wieviele Eintraege hat das Menu?
 ~~~sql
 SELECT count(*)       
   FROM menu
@@ -382,7 +382,7 @@ null  null       3     Darth Vader
 ]
 ---
 class:split-50
-#  CROSS JOIN: Erzeugt kartesiches Produkt
+# CROSS JOIN: Erzeugt kartesiches Produkt
 
 .column[
 ~~~sql
@@ -395,6 +395,7 @@ SELECT *
 .column[
 ![sql-joins-venn](/img/dbl/cartesian-product.png)
 ]
+In einfachen Worten: Verbindet jede Zeile der TabelleA mit jeder Zeile der TabelleB
 ---
 
 ![sql-joins-venn](/img/dbl/sql-join-venn-overview.jpg)
