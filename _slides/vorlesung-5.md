@@ -202,7 +202,7 @@ SELECT category AS art, cost AS preis, size as groesse
  WHERE category = 'Pizza';
 ~~~
 ---
-# Zeige mir alle Getraenke-Groesse mit Masseinheit ?
+# Zeige mir alle Getraenke-Groessen mit Masseinheit!
 
 ~~~sql
 SELECT size || 'L' AS groesse_einheit       
@@ -217,7 +217,7 @@ SELECT *
   FROM menu;
 ~~~
 ---
-# Zeig mir das Menu geordnet nach nummer!
+# Zeig mir das Menu geordnet nach Nummer!
 
 ~~~sql
 SELECT *       
