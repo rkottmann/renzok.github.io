@@ -273,7 +273,7 @@ Es wird immer eine und nur eine Tabelle durch `SELECT` erzeugt, daher ist das te
 	 Zeige alle Spalten der Tabelle "tabelle" an und davon alle Zeilen.
 ---
 
-# Beispiel Tabelle
+# Beispiel-Tabellen
 ~~~
 TabelleA      TabelleB
 id name       id  name
