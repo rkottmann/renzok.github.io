@@ -62,8 +62,7 @@ CREATE TABLE image (
   --(null, null, null),
   --('', NULL, NULL),
   --(NULL, '', null),
-  --(NULL, NULL, '')
-  ;
+  --(NULL, NULL, '');
   
 -- richtige Daten
 INSERT INTO image (location, copyright, type)
@@ -302,13 +301,76 @@ CREATE TABLE "order" (
     NOT NULL DEFAULT now(),
   channel text
     REFERENCES channel(name),
-  estimated interval,
-  prep_finish timestamp 
+  delivery boolean NOT NULL,
+  estimated interval NOT NULL default '00:00:15',
+  -- time preparation starts
+  prep_start timestamp 
     NOT NULL 
     DEFAULT 'infinity',
-  delivery_start timestamp,
-  delivery_finished timeSTAMp
+  -- time preparation finishes
+  prep_end timestamp 
+    NOT NULL 
+    DEFAULT 'infinity',
+  -- time delivery starts
+  del_start timestamp
+    NOT NULL 
+    DEFAULT 'infinity',
+  -- time delivery finishes
+  del_end timeSTAMp
+    NOT NULL
+    DEFAULT 'infinity'
 );
+
+-- just received order
+INSERT INTO "order" 
+  (channel, delivery) 
+VALUES
+  ('telefon', 't');
+
+
+-- preparation started order
+INSERT INTO "order" 
+  (received, channel, delivery,estimated,prep_start) 
+VALUES
+  ('2016-01-02 11:00:00','telefon', 't', '00:00:30', '2016-01-02 11:01:00');
+
+
+-- preparation done
+INSERT INTO "order" 
+  (received, channel,delivery,estimated,
+   prep_start, prep_end) 
+VALUES
+  ('2016-01-03 16:00:00','telefon', 't', '00:00:30', 
+   '2016-01-03 16:01:00', '2016-01-03 16:14:00');
+
+-- in delivery
+INSERT INTO "order" 
+  (received, channel,delivery,estimated,
+   prep_start, prep_end,
+   del_start) 
+VALUES
+  ('2016-01-03 15:55:00','telefon', 't','00:00:15', 
+   '2016-01-03 15:55:00', '2016-01-03 15:04:00',
+   '2016-01-03 15:04:00');
+
+  
+INSERT INTO "order" (
+  received, channel, delivery,
+  estimated, prep_start, prep_end, 
+  del_start, del_end)
+VALUES 
+('2016-01-01 10:00:00', 'internet', 't',
+  '00:00:30', '2016-01-01 10:02:00', '2016-01-01 10:13:00',
+  '2016-01-01 10:15:00','2016-01-01 10:28:00'),
+('2016-01-01 10:00:00', 'internet', 't',
+  '00:00:30', '2016-01-01 10:02:00', '2016-01-01 10:13:00',
+  '2016-01-01 10:15:00','2016-01-01 10:28:00')
+
+  ;
+
+
+
+
 
 CREATE TABLE order_item (
   order_id bigint 

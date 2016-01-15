@@ -130,14 +130,24 @@ SELECT *        -- welche Spalten sollen wie angezeigt werden
   FROM tabelle  -- Daten welcher Tabelle 
  WHERE true     -- Selektionesbedingungen: nur Daten, die Kriterium entsprechen
 ~~~
+--
+Kann gelesen werden als:
+
+     Zeige mir alle Spalten der Tabelle "tabelle" an und davon alle Zeilen.
+--
+Datenbank interpretiert das in der Reihenfolge `FROM`, `WHERE`, `'*'` (Spalten)
+
+     Hole aus der Tabelle "tabelle" alle Zeilen die der Bedingung 'true' entsprechen
+	 und zeige davon alle Spalten an.
 ---
-# Anatomy von SELECT
+# Konkretes SELECT
 
 ~~~sql
 SELECT *        -- * (asterisk) heisst alle spalten, wie sie sind
-  FROM order    -- Daten der Tabelle mit dem Namen "order"
- WHERE true     -- Boolsche Bedingung: hier true also alle Daten
+  FROM "order"; -- Daten der Tabelle mit dem Namen "order"
 ~~~
+Boolsche `WHERE` Bedingung kann weggelassen werden, wenn man alle Zeilen will.
+
 ---
 ### **ANFRAGE:**
 # Zeig mir alle Preise pro Groesse!
@@ -235,13 +245,34 @@ SELECT *
 ---
 # Wieviele Eintraege hat das Menu?
 ~~~sql
-SELECT count(*)       
+SELECT count(*)       -- Aggregat Funktion: Zaehle Zeilen
   FROM menu
   ORDER BY num DESC;
 ~~~
+[Aggregat Funktionen](http://www.postgresql.org/docs/9.3/static/functions-aggregate.html) berechnen einen einzigen Wert aus einer Menge von Werten.
+
+Es gibt einige Funktionen u.a. auch `min`, `max` und `sum`.
 ---
+class: center, middle
 # Abfragen ueber mehere Tabellen
 ---
+# Revisted: Anatomy von SELECT
+
+~~~sql
+SELECT *        -- welche Spalten sollen wie angezeigt werden
+  FROM tabelle  -- Daten welcher Tabelle 
+ WHERE true     -- Selektionesbedingungen: nur Daten, die Kriterium entsprechen
+~~~
+Kann gelesen werden als:
+
+     Zeige mir alle Spalten der Tabelle "tabelle" an und davon alle Zeilen.
+--
+Es wird immer eine und nur eine Tabelle durch `SELECT` erzeugt, daher ist das technisch praeziser:
+
+     Erzeuge und zeig mir eine virtuelle Tabelle, die folgender Anweisung enpricht:
+	 Zeige alle Spalten der Tabelle "tabelle" an und davon alle Zeilen.
+---
+
 # Beispiel Tabelle
 ~~~
 TabelleA      TabelleB
