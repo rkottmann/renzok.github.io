@@ -158,6 +158,7 @@ VALUES
   ('lokal', 'f')
 RETURNING *;
 ```
+* Speicher order_id und verwende diese im naechsten Insert (vorherige Folie)
 ---
 # SERIAL data type
 
@@ -179,7 +180,72 @@ CREATE TABLE tablename (
 );
 ...
 ``` 
+
 * Mit [SQL-Funktionen](http://www.postgresql.org/docs/9.5/interactive/functions-sequence.html), kann der Wert einer Sequence hochgezaehlt, neu gesetzt werden oder der aktuelle Wert bestimmt werden.
+---
+# Bestellvorgang vor Ort
+## Loesung II: Mit SERIAL und currval()
+
+```sql
+INSERT INTO "order" 
+  (channel, delivery) 
+VALUES
+  ('lokal', 'f');
+```
+Und jetzt curval
+```sql
+INSERT INTO order_item 
+   ( order_id ,food_name, num, category, size) 
+VALUES
+   (currval('order_id_seq'::regclass), 'Salami', 1, 'pizza', 32),
+   (currval('order_id_seq'::regclass), 'Fungi', 2, 'pizza', 28);
+```
+---
+# Problem von Loesung II
+
+* Nicht Transkationssicher
+* Wenn mehere Anfragen gleichzeitig currval() aufrufen, werden falsche order_id vergeben
+---
+# Loesung Transkationen
+
+  Eine Transkation ist eine Menge von Operationen die atomic, consistent, isoliert und dauerhaft sind (ACID).
+  D.h.  eine Transkation macht "Alles oder Nichts”.
+---
+# ACID
+Ist die wichtigste Eigenschaft einer Datenbank zur Garantie der Daten-Integrität.
+
+* **A**tomic
+
+  Eine Transaktion gruppiert mehrere Anweisungen in eine einzige atomare Operation.
+* **C**onsistent
+
+  Eine Transaktion bringt eine Datenbank von einem konsistenten Zustand in den nächsten.
+---
+# ACID
+
+* **I**solated
+
+  Eine Transaktion findet isoliert, ohne Einfluss konkurrierende Transaktionen, statt.
+* **D**urable
+
+  Bei der erfolgreichen Beendigung einer Transaktion sind alle Änderungen dauerhaft gespeichert.
+---
+# Loesung II
+
+```sql
+BEGIN;
+INSERT INTO "order" 
+  (channel, delivery) 
+VALUES
+  ('lokal', 'f');
+
+INSERT INTO order_item 
+   ( order_id ,food_name, num, category, size) 
+VALUES
+   (currval('order_id_seq'::regclass), 'Salami', 1, 'pizza', 32),
+   (currval('order_id_seq'::regclass), 'Fungi', 2, 'pizza', 28);
+COMMIT;
+```
 ---
 # Aktuelle Implementierung
 
