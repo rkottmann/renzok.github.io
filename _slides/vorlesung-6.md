@@ -42,7 +42,7 @@ class: center, middle
 ---
 # Abfrage: Menue-Uebersicht
 
-![menu-zoom](/img/dbl/pizza-menu-zoom-erd-v6.png)
+![menu-zoom](/img/dbl/pizza-menu-zoom-erd-v6a.png)
 ---
 # Welche Pizza hat welchen Belag?
 ```sql
