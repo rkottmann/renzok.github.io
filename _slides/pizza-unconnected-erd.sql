@@ -31,8 +31,8 @@ DROP TABLE IF EXISTS
   salad, beverage, pizza, topping, 
   image, pizza_compilation,
   menu, channel,"order", order_item, pizza_extra_topping,
-  client, branch, deleivery_adress, channel,
-  food_category, food_size_price ;
+  client, branch, delivery_address, channel,
+  food_category, food_size_price,delivery ;
 
 
 
@@ -77,25 +77,39 @@ INSERT INTO image (location)
   ('http://sonstwo/mozarella'),
   ('http://sonstwo/spinaci'),
   ('http://sonstwo/tubel');
+
+
+
+CREATE TABLE food_category (
+  name text 
+    PRIMARY KEY 
+    check (name != ''),
+  size_unit text     
+);
+
+INSERT INTO food_category (name,size_unit)
+VALUES ('beverage', 'L'),('salad', ''),('pizza', 'cm');
   
 CREATE TABLE menu (
   name text PRIMARY KEY,
-  num integer check (num > 0) NOT NULL UNIQUE
+  num integer check (num > 0) NOT NULL UNIQUE,
+  cost price NOT NULL,
+  category text REFERENCES food_category NOT NULL
 );
 
-INSERT INTO menu (num, name)
+INSERT INTO menu (num, name,cost,category)
   VALUES  
-  (5,'Fungi'),
-  (2,'Salami'),
-  (6,'Hawai'),
-  (4,'Mozarella'),
-  (1,'Spinaci'),
-  (3,'Tubel'),
-  (7,'Griechischer Salat'),
-  (8,'Tomaten Salat'),
-  (9,'Cola'),
-  (10,'Biolunder'),
-  (11,'Wasser');
+  (5,'Fungi', 10.0, 'pizza'),
+  (2,'Salami', 10.0,'pizza'),
+  (6,'Hawai', 10.0,'pizza'),
+  (4,'Mozarella', 10.0,'pizza'),
+  (1,'Spinaci', 10.0,'pizza'),
+  (3,'Tubel', 10.0,'pizza'),
+  (7,'Griechischer Salat', 10.0,'salad'),
+  (8,'Tomaten Salat', 10.0,'salad'),
+  (9,'Cola', 1.0,'beverage'),
+  (10,'Biolunder', 2.0,'beverage'),
+  (11,'Wasser', 10.0,'beverage');
   
 
 -- Implementiert entitaet pizza
@@ -201,68 +215,26 @@ INSERT INTO
          ('Tubel','champion'),
          ('Tubel','hackfleisch');
 
-CREATE TABLE food_category (
-  name text 
-    PRIMARY KEY 
-    check (name != '')
-);
-
-INSERT INTO food_category (name)
-VALUES ('beverage'),('salad'),('pizza');
-
 CREATE TABLE food_size_price (
   category text 
     REFERENCES food_category,
   size numeric
     check (size > 0),
   cost price,
-  PRIMARY KEY (category,size,cost)
+  PRIMARY KEY (category,size)
 );
 
 INSERT INTO food_size_price 
   (category, size, cost)
 VALUES
-  ('beverage', 0.3, 1.0),
-  ('beverage', 0.7, 1.50),
-  ('beverage', 1.0, 2.0),
-  ('salad', 1, 5.0),
-  ('salad', 2, 7.0),
-  ('pizza', 26, 6.0),
-  ('pizza', 28, 8.0),
-  ('pizza', 32, 10.0);
-
-
-CREATE TABLE client (
-  id BIGSERIAL PRIMARY KEY,
-  first_name text 
-    check (first_name != ''),
-  last_name text
-    check (last_name != ''),
-  email text NOT NULL DEFAULT '',
-  phone text NOT NULL DEFAULT ''
-);
-
-INSERT INTO client 
-  (first_name,last_name)
-VALUES
-   ('renzo','k'),
-   ('lady','gaga'),
-   ('mesut','oezil');
-
-
-INSERT INTO client 
-  (first_name,last_name,email)
-VALUES
-   ('matthias','a', 'ma@supermail.com'),
-   ('olaf','p', 'op@supermail.com'),
-   ('peter','pan', 'pp@supermail.com');
-
-INSERT INTO client 
-  (first_name,last_name,email, phone)
-VALUES
-   ('matthias','a', 'ma@supermail.com', '0177666886'),
-   ('olaf','p', 'op@supermail.com', '0177666889'),
-   ('peter','pan', 'pp@supermail.com', '01776668876');
+  ('beverage', 0.3, 0.0),
+  ('beverage', 0.7, 0.50),
+  ('beverage', 1.0, 1.0),
+  ('salad', 1, 0.0),
+  ('salad', 2, 2.0),
+  ('pizza', 26, 0.0),
+  ('pizza', 28, 2.0),
+  ('pizza', 32, 4.0);
 
 
 CREATE TABLE branch (
@@ -316,7 +288,7 @@ CREATE TABLE "order" (
     NOT NULL 
     DEFAULT 'infinity',
   -- time delivery finishes
-  del_end timeSTAMp
+  del_end timestamp
     NOT NULL
     DEFAULT 'infinity'
 );
@@ -353,7 +325,7 @@ VALUES
    '2016-01-03 15:55:00', '2016-01-03 15:04:00',
    '2016-01-03 15:04:00');
 
-  
+-- finished orders
 INSERT INTO "order" (
   received, channel, delivery,
   estimated, prep_start, prep_end, 
@@ -379,14 +351,32 @@ CREATE TABLE order_item (
     REFERENCES menu(name),
   num integer not null DEFAULT 1,
   category text NOT NULL,
-  cost price NOT NULL,
   size numeric NOT NULL,
   PRIMARY KEY (order_id,food_name,size,num),
-  FOREIGN KEY (category,cost,size) 
+  FOREIGN KEY (category,size) 
    REFERENCES food_size_price
-     (category,cost,size)
+     (category,size)
 );
 
+INSERT INTO order_item (
+  order_id,food_name, num, category, size
+) VALUES
+(
+  1, 'Salami', 1, 'pizza', 32
+),
+(
+  1, 'Fungi', 2, 'pizza', 28
+),
+(
+  2, 'Fungi', 1, 'pizza', 28
+),
+(
+  2, 'Fungi', 1, 'pizza', 26
+),
+(
+  3, 'Griechischer Salat', 1, 'salad', 1
+)
+;
 
 create table pizza_extra_topping (
   order_id bigint,
@@ -402,3 +392,74 @@ create table pizza_extra_topping (
     REFERENCES order_item
     (order_id, num,food_name,size)
 );
+
+insert into pizza_extra_topping 
+(order_id, num, topping_name,pizza_name,size)
+  VALUES
+(1, 1, 'Knoblauch','Salami', 32);
+
+
+CREATE TABLE client (
+  id BIGSERIAL PRIMARY KEY,
+  first_name text 
+    check (first_name != ''),
+  last_name text
+    check (last_name != ''),
+  email text NOT NULL DEFAULT '',
+  phone text NOT NULL DEFAULT ''
+);
+
+INSERT INTO client 
+  (first_name,last_name)
+VALUES
+   ('renzo','k'),
+   ('lady','gaga'),
+   ('mesut','oezil');
+
+
+INSERT INTO client 
+  (first_name,last_name,email)
+VALUES
+   ('matthias','a', 'ma@supermail.com'),
+   ('olaf','p', 'op@supermail.com'),
+   ('peter','pan', 'pp@supermail.com');
+
+INSERT INTO client 
+  (first_name,last_name,email, phone)
+VALUES
+   ('matthias','a', 'ma@supermail.com', '0177666886'),
+   ('olaf','p', 'op@supermail.com', '0177666889'),
+   ('peter','pan', 'pp@supermail.com', '01776668876');
+
+
+CREATE TABLE delivery_address (
+  city text,
+  street text,
+  num text,
+  postal_code text default '',
+  PRIMARY KEY(city,street,num)
+);
+
+insert into delivery_address
+  (city,street,num)
+VALUES
+  ('Bremen','Flughafenalle','10'),
+  ('Bremen','Domsheide','99'),
+  ('Bremen','Osterweg','77')
+  ;
+
+CREATE TABLE delivery (
+  order_id integer,
+  client_id integer,
+  city text,
+  street text,
+  num text,
+  PRIMARY KEY (order_id,client_id,city,street,num)
+);
+
+
+insert into delivery
+  (order_id,client_id,city,street,num)
+VALUES
+  (1,1,'Bremen','Domsheide','99')
+  ;
