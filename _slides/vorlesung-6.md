@@ -16,7 +16,7 @@ Attribution-NonCommercial 4.0 International License</a>.
 class: center, middle
 # Modul Datenbanken
 # Vorlesung 6
-# Geschaeftprozesse 
+# Geschaeftsprozesse 
 # Beispiel Pizza Service Datenbank
 ###### IFI Wintersemester 2015/16
 ---
@@ -58,6 +58,16 @@ SELECT pizza_name, string_agg(topping_name, ',')
   FROM pizza_compilation
  GROUP BY pizza_name;
 ```
+---
+# Komplettes Group by Beispiel
+
+```sql
+SELECT pizza_name, count(topping_name) 
+  FROM pizza_compilation
+  where pizza_name ~ '^H' -- nur pizzen die mit H anfangen 
+  group by pizza_name having count(topping_name) > 1; 
+  -- nur die Gruppen die mehr als einen Belag haben
+```  
 ---
 # Zeig mir zum Menu die Pizza-Bilder
 
