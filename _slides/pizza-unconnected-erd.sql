@@ -1,17 +1,8 @@
 
 
 set client_min_messages = 'error';
--- SQL der ersten Umsetzung des Pizza Service
+-- SQL zur Implementeirung der Pizza Service Datenbank
 
-/* Zur Uebung lege folgende constraints fest
- * Datentypen (gibt es bessere Datentypen??)
- * Primary Keys 
- * NULL or NOT NULL Constraints
- * DEFAULT VALUES
- * CHECK Constraints
- * Unique Constraint
- *
- */ 
 
 /* 
  * Domains fuer einheitliche checks 
@@ -39,6 +30,7 @@ DROP TABLE IF EXISTS
 CREATE TABLE channel (
   name text PRIMARY KEY check(name != ''::text)
 );
+
 INSERT INTO channel (NAME)
 VALUES ('internet'),('lokal'),('telefon');
 
@@ -53,7 +45,7 @@ CREATE TABLE image (
     NOT NULL DEFAULT 'unknown'
 );
 
--- falsche Daten
+-- falsche Daten, d.h. 
 --INSERT INTO image (location, copyright, type)
 --  VALUES 
 --  ('super file location', 'super copyright', 'super bild type')
