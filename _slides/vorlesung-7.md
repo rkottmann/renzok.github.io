@@ -343,7 +343,7 @@ D.h. jedes Attribut enthält nur einen Wert der immer als Ganzes betrachtet wird
 > „Alle Attribute, die nicht Teil des Schluessels sind, haengen voll funktional von diesem ab.“
 
 * Ist der Primärschlüssel einfach, so ist 2NF trivialerweise erfüllt.
-* Daher ist die obige Tabelle schon in 2NF.
+* Die obige Tabelle ist noch **nicht** in 2NF. Wenn diese Tabelle in 1NF waere, was muesste dann noch verbessert werden?
 
 Folgendes schematisches Beispiel soll dies verdeutlichen:
 
@@ -395,7 +395,7 @@ Haeufig sind gute Modelle schon in 3NF. Normalisierung hilft dies zu ueberpruefe
 # Referenzen
 
 Beide Bilder aus:
-
+	
 * M. Unterstein and G. Matthiessen, Relationale Datenbanken und SQL in
   Theorie und Praxis. Berlin, Heidelberg: Springer Berlin Heidelberg,
   2012.
