@@ -348,7 +348,7 @@ INSERT INTO pizza (name,img)
 ---
 # Foreign Keys (many to many) 
 
-![erd-teilnehmerinnen](/img/dbl/pizza-connected.png)
+![erd-teilnehmerinnen](/img/dbl/pizza-connected-erd-v1.png)
 
 ---
 # Foreign Keys (many to many) 
