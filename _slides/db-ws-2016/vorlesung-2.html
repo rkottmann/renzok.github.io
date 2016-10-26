@@ -1,0 +1,637 @@
+---
+layout: remark
+title: Datenbanksysteme und Datenbankentwurf
+---
+
+# Modul Datenbanken
+# Vorlesung 2
+# Datenbanksysteme und Datenbankentwurf
+###### IFI Wintersemester 2016/17
+by Renzo Kottmann
+
+
+<a rel="license"
+href="http://creativecommons.org/licenses/by-nc/4.0/"><img
+alt="Creative Commons License" style="border-width:0"
+src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br
+/>This work is licensed under a <a rel="license"
+href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons
+Attribution-NonCommercial 4.0 International License</a>.
+
+---
+# Beim letzten Mal besprochen
+
+* [Was sind Daten?](/slides/db-ws-2016/intro.html#17)
+* [Welche Kategorien von Daten gibt es?](/slides/db-ws-2016/intro.html#20)
+* [Was ist eine Datenbank?](/slides/db-ws-2016/intro.html#22)
+
+---
+# Ist das eine Datenbank?
+
+## Z.B. in einem Excel-File gespeichert:
+```csv
+Viereck;Axel;26123;Oldenburg;
+Huber;Ina;12345;FFM;0123/65235
+Lustig;Olga;12345;Frankfurt;0123/45456
+Mustermann;Erika;12345;Frankfurt;0123/45456
+Henseler;Herwig;26197;Großenkneten;04435/388486 (Fax:388487)
+Lustig;Peter;Frankfurt;0123/45456
+Huber;Ina;3454;Dresden;0283/11111
+mustermann;erika;;Bremen;436654
+```
+
+---
+# Ja
+# Sehr simpel
+# Wir haben sogar schon ein einfaches Datenbankprojekt gemacht
+---
+# Schritte im Projekt
+
+1. Problem in der realen Welt
+  * Wer sind die Teilnehmerinnen in meinem Kurs?
+
+2. Datenerfassung
+  * Liste der Teilnehmerinnen
+  * Implizites Model (Tabelle)
+3. System zur Verarbeitung und Speicherung
+  * CSV Datei
+
+---
+# Was sind die Nachteile von diesem System?  
+
+
+---
+# Was wäre besser?
+
+--
+1. Hohe Datenintegrität bzw. Konsistenz
+2. Mehrere Nutzer können gleichzeitg an den selben Daten arbeiten
+3. Effiziente Suche in grossen Daten
+
+---
+
+# Für Datenintegrität
+
+* Strukturierte Daten
+
+* (relational) Datenbank (DB)
+
+ * Schema („Modell“, „Metadaten“)
+
+ * \+ Daten („Extension“, „Nutzdaten“)
+
+  * Modell und Daten sind konzeptionell getrennt!
+
+---
+
+# Für Effizienz und Mehrbenutzer
+
+* Datenbankmanagementsystem (DBMS)
+
+* Softwaresystem 
+
+    * ermöglicht Erstellen und die Pflege einer DB
+
+    * stellt Werkzeuge für alle Aspekte der Datenverwaltung bereit
+
+
+---
+class: split-50
+# Datenbanksystem
+
+.column[
+* Datenbank (DB)
+
+  Schema + Daten
+
+* Datenbankmanagement&shy;system (DBMS)
+
+  Softwaresystem zur Verwaltung
+
+* Datenbanksystem
+
+  DBMS + DB(s)
+]
+.column[
+![test](/img/datenbanksystem-concept.png)
+]
+
+---
+
+# Definition: Datenbanksysteme
+
+> Ein Datenbank Management System oder vereinfacht ein Datenbanksystem
+ist eine spezialisierte Software sowohl zur langfristigen digitalen
+Erfassung als auch zur effizienten, sicheren Verarbeitung und
+Speicherung von Daten:
+
+> "Specialized software called a database
+management system, or DBMS, or more colloquially a "database
+system". A DBMS is a powerful tool for creating and managing large
+amounts of data efficiently and allowing to persist over long periods
+of time, safely. These systems are among the most complex types of
+software available.”
+
+---
+
+# Heutige Anforderungen an Datenbanksysteme
+
+1. Datenhaltung
+1. Skalierbarkeit
+1. Anfrageoptimierung (Performanz)
+1. Datenintegrität
+1. Mehrbenutzerfähigkeit
+1. Schichtentrennung 
+1. Schnittstellen
+1. Datensicherheit
+
+---
+# Datenhaltung
+
+* Große Datenmengen, welche nicht alle im Hauptspeicher gehalten
+werden können
+
+* Kein Limit für die Anzahl der Zeilen in einer Tabelle
+
+* Permanente Erreichbarkeit der Datenbank
+
+* Verwendung mehrerer Tabellen.
+
+  * Einfache Verwaltungsmöglichkeiten notwendig: Anlegen, ändern,
+  löschen von Tabellen.
+
+* Komplexe Datenmanipulationen: Anlegen, ändern, löschen von vielen
+Datensätzen gemäß nicht-trivialer Bedingungen.
+
+---
+#	Skalierbarkeit
+
+Wird die Datenbank größer, so muss dies durch Einsatz von mehr
+     Hardware ausgeglichen werden können:
+
+*  Nutzung vieler:
+
+  * CPU- und Plattenressourcen durch
+
+    * Multithreading, Multiprocessing und dynamisches Hinzufügen von
+Speicherplatz.
+	 
+* Verteilbarkeit, Replizierbarkeit:
+
+  * Zur Leistungssteigerung oder Datensicherheit können mehrere
+     Instanzen einer Datenbank auf verschiedenen Rechnern gleichzeitig
+     laufen.
+
+---
+# Anfrageoptimierung (Performanz)
+
+* Effiziente Abarbeitung von Suchanfragen durch schnelles Suchen in
+den Daten
+
+* Hilfsstrukturen sollen dabei vermeiden, immer alle Daten durchsuchen
+  zu müssen.
+
+---
+
+# Datenintegrität
+
+* Pflege von strengen Konsistenzbedingungen hinsichtlich
+
+  * Datentypen
+
+  * Redundanzfreiheit
+
+  * Beziehungen der Daten untereinander
+
+* Transaktionen
+
+  * Werden mehrere Operationen hintereinander ausgeführt, so muss die
+	Datenintegrität gewahrt sein
+
+  * Beispiel: Kontobuchungen
+
+---
+# Mehrbenutzerfähigkeit
+
+* Viele Programme greifen gleichzeitig auf die gleichen Daten zu
+
+  * Erkennen und Auflösen von Schreibkonflikten
+
+* Zugriffsrechteverwaltung:
+
+  * Nicht jeder Benutzer darf alle Daten sehen oder modifizieren
+
+
+---
+# Schichtentrennung
+
+* Physische Trennung von Datenbank und Anwendungssystemen auf
+     verschiedener Hardware
+
+* Plattformunabhängigkeit:
+
+  * Eine Datenbank darf nicht von einem bestimmten Betriebssystem
+     abhängen
+
+* Möglichkeit, eine zentrale Datenbank für viele Anwendungen zu
+schaffen
+
+* Trennung von Datenbank und Anwendungslogik:
+
+  * Die Daten müssen unabhängig von einer konkreten Anwendung
+  gespeichert sein
+
+  Programme sind vergänglich und austauschbar, Daten und deren
+  Struktur sind wesentlich langlebiger und wertvoller
+
+---
+
+# Schnittstellen
+
+* Komplexe Suchanfragen erfordern eine eigene Suchanfragesprache
+
+* Vielfältige und offene Schnittstellen zu allen möglichen
+Programmiersprachen oder Anwendungen
+
+---
+
+# Datensicherheit
+
+* Alle Änderungen müssen sofort dauerhaft gespeichert sein ohne
+Datenverlust
+
+---
+
+# Relationale Datenbank PostgreSQL
+
+![PostgresSQL logo](/img/postgres-logo.png)
+
+## http://www.postgresql.org/
+
+* Open Source
+
+* Sehr nah am SQL-Standard
+
+* Sehr gute Dokumentation
+
+---
+
+# Datenmodell
+
+System von Konzepten zur abstrakten Darstellung eines Ausschnitts der
+realen Welt mittels Daten
+
+* besteht aus 
+  * generischer Datenstruktur
+  * Operatoren
+  * Integritätsbedingungen
+
+---
+
+# Relationales Datenbankmodell 
+
+
+## Generische Datenstruktur
+
+* Relationen mit eindeutigen Namen
+
+  * jede Relation ist eine Menge von Tupeln (Datensätzen) gleichen
+  Typs
+
+  * Die Struktur ist insofern generisch, als die Relationen und ihre
+  Attribute (Spalten) beliebig gewählt werden können bzw. beim
+  Einrichten der Datenbank angegeben werden müssen.
+
+---
+
+## Operatoren
+
+* relationale Algebra
+
+* Daten
+
+  * eintragen
+
+  * ändern
+
+  * löschen
+
+  * abfragen
+
+  * ableiten
+
+---
+
+## Integritätsbedingungen
+
+* Bestimmung von ein-eindeutigen Tupeln
+
+* Einschränkungen vom Wertbereich bestimmter Datentypen
+
+https://de.wikipedia.org/wiki/Datenbankmodell
+
+---
+
+# Client / Server Sicht
+
+
+ ![Client/Server Sicht](/img/db-client-server.jpg)
+
+ [Abb. 2.1 aus Matthiessen](#referenzen)
+
+---
+class: center, middle
+
+# 2. Runde
+## Mit dem relationalem Ziel vor Auge
+
+---
+
+# Schritte im Projekt
+
+1. Problem in der realen Welt
+  * Wer sind die Teilnehmerinnen in meinem Kurs?
+
+2. Datenerfassung
+  * Liste der Teilnehmerinnen
+  * Implizites Model (Tabelle)
+
+3. System zur Verarbeitung und Speicherung
+  * CSV Datei
+
+---
+# Schritte im Projekt
+
+1. Problem in der realen Welt / Anwendungsdefinition
+  * Wer sind die Teilnehmerinnen in meinem Kurs?
+
+2. Konzeptioneller Entwurf / Datenbankmodellierung
+
+3. Datenbank Realisierung
+  * Implementierung des Modells
+  * Verabreiten der Daten 
+
+4. System zur Verarbeitung und Speicherung
+  * Datenbank im Betrieb: PostgreSQL
+
+---
+
+# Konzeptioneller Entwurf
+
+In der Phase der Systemanalyse werden ausgehend von der
+Problemstellung die Anforderungen an die Lösung formuliert. Diese
+sollten möglichst vollständig und konsistent sein, d.h. alle
+(vollständigen) Anforderungen sollten widerspruchsfrei (konsistent)
+formuliert werden.
+
+Ein guter Einstieg in die Anwendungsdefinition ist, sich zu
+verdeutlichen, welche genaueren Zwecksetzungen erfüllt werden
+sollen.
+
+---
+# Anwendungsdefinition
+
+Welchen Zwecken soll die Erfassung aller Kursteilnehmenrinnen dienen?
+
+--
+Antwort:
+
+* Informationsweitergabe an alle Teilnehmerinnen
+
+* Namen lernen
+
+* Notenvergabe
+
+* Ermittlung des Wissenstands
+
+* Wer macht welches Datenbankprojekt
+
+---
+
+# Mini-Welt
+
+(wenn) wir wissen was wir wollen, dann können wir folgende Fragen beantworten:
+
+* Welchen Ausschnitt der realen Welt brauchen wir?
+* Welche Aspekte müssen wir Berücksichtigen?
+
+---
+
+![mini Welt](/img/mini-world.png)
+
+---
+
+# Entity Relationship Modellierung (ERM)
+
+* Semantischer Datenbankentwurf 
+
+  * unabhängig von konkreten Datenbank-spezifischen Modellen
+
+  * dienen zum Entwurf von relationalen, Netzwerk- oder
+    Objekt-Datenbanken
+
+* Graphisch
+
+* Idee simpel
+
+  * Leider sehr viele inkonsistente Varianten 
+
+---
+# Entity (Entität)
+
+* Ein Entity-Relationship-Model (ERM) geht von Entitäten (~= Objekten)
+aus.
+
+    "Eine Entität ist eine eigenständige Einheit, die im Rahmen des
+betrachteten Modells **eindeutig identifiziert** werden kann."
+
+* Ein Entitätstyp wird durch Attribute genauer beschrieben und stellt
+somit eine abstrakte Beschreibung oder Charakterisierung von Entitäten
+da.
+
+* Beispiel: 
+
+    Lehrer = Entitätstyp
+
+    Renzo ~= Entität (ein spezieller Lehrender)
+
+---
+
+# Attribute
+
+* Eigenschaften von Entitäten werden durch Attribute beschrieben
+* Attribute haben einen Namen und eine Domaine (= Bestimmung der Wertmenge).
+
+---
+
+# Keys (Schlüssel)
+
+Da die Definition einer Entität beinhaltet, dass diese zumindest im
+Rahmen eines Modells eindeutig identifiziert werden kann, braucht
+jeder Entitätstyp eine Menge von Attributen als Schlüssel.
+
+Die Auswahl eines oder meherer Attribute als Schlüssel legt fest, dass
+es keine zwei Entitäten eines Entitätstyp geben kann die identische
+Attributwerte haben.
+
+* Wichtige Eigenchaften:
+
+  * Eindeutigkeit
+  * Zuteilbarkeit
+
+---
+
+# Relationship (Beziehung)
+
+Verschiedene Entitäten können zueinander in Beziehung gesetzt
+werden. 
+
+* In jeder Beziehung haben Entitäten gewisse Rollen
+* Beziehungen können Eigenschaften (Attribute) haben
+* Beziehungen haben Kardinalitäten
+  
+---
+  
+# Notationen
+
+Es gibt verschiedene Formen ERM zu notieren (textuell und/oder graphisch):
+
+* [Chen Notation](https://de.wikipedia.org/wiki/Chen-Notation)
+* [Crow Foot's](https://de.wikipedia.org/wiki/Martin-Notation)
+* [Unified Modelling Language](https://de.wikipedia.org/wiki/Unified_Modeling_Language) (UML)
+
+---
+
+# Notation
+
+<table width="100%">
+  <tr>
+    <td>Entity</td>
+    <td><img src="/img/single-entity.jpg"/></td>
+  </tr>
+ <tr>
+    <td>Attribute</td>
+    <td><img src="/img/single-entity-attribute.jpg"/></td>
+  </tr>
+ <tr>
+    <td>Beziehungen/Relationship</td>
+    <td><img src="/img/entity-relationship.jpg"/></td>
+  </tr>
+</table>
+
+---
+# Alternativer Blick: Datenbankentwicklungszyklus
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/DatMod_v_semMod_zur_DBK.svg" alt="entwurfsmodell">
+
+„<a href="https://commons.wikimedia.org/wiki/File:DatMod_v_semMod_zur_DBK.svg#/media/File:DatMod_v_semMod_zur_DBK.svg">DatMod v semMod zur DBK</a>“ von <a href="//de.wikipedia.org/wiki/User:V%C3%96RBY" class="extiw" title="de:User:VÖRBY">VÖRBY</a>, Konertierung zu SVG <a href="//de.wikipedia.org/wiki/User:Perhelion" class="extiw" title="de:User:Perhelion">Perhelion</a> - eigene Erstellung, aus Wikipedia-Text abgeleitet. Lizenziert unter Gemeinfrei über <a href="https://commons.wikimedia.org/wiki/">Wikimedia Commons</a>.
+
+---
+# Structured Query Language (SQL)
+SQL ist eine Datenbanksprache 
+
+1. zur Definition von Datenstrukturen/Modellen 
+
+2. zum Bearbeiten (Einfügen, Verändern, Löschen) 
+
+3. zum Abfragen von darauf basierenden Datenbeständen
+
+4. zur Rechtevergabe
+
+---
+
+# SQL Eigenschaften
+
+* basiert auf relationaler Algebra
+
+* an English angelehnt
+
+* Deklarativ und funktional
+
+* Fast alle Datenbanken verstehen SQL
+
+* Standardisiert
+
+  * PostgreSQL hat einer der besten Umsetzungen
+
+---
+class: center, middle
+# Danke für die Zusammenarbeit
+
+---
+
+name: referenzen
+# Referenzen:
+
+* M. Unterstein and G. Matthiessen, Relationale Datenbanken und SQL in
+  Theorie und Praxis. Berlin, Heidelberg: Springer Berlin Heidelberg,
+  2012.
+
+---
+
+Exkurs:
+
+
+Natural Keys
+
+Ein natürlicher Schlüssel ist die Menge der Attribute einer Entität, die diese Entität eindeutig identifiziert
+(natürlich da es nur einer Auswahl der schon eh definierten Attribute braucht).
+
+	* Diese können an der Realität überprüft werden
+
+"Intelligente Schlüssel" basieren häufig auf Industriestandards und können mit Hilfe externer Ressourcen überprüft werden. Z.B: ISBN, EAN, VIN, UPC... 
+
+Artificial Keys
+
+Artifizielle, synthetische Schlüssel sind zusätzlich hinzugefügte Attribute die für die eindeutige Identifizierung einer Entität benutzt werden. 
+
+	* Können nicht an der Realität überprüft werden
+
+
+Auto-Numbers (Increment, serials) sind schlicht keine relationale Schlüssel, werden aber oft als artificial keys benutzt.
+
+
+
+Natural KeyArtificial KeyTeil des DatenmodelsJaNein
+
+In der Realität verifizierbarJaNeinIn sich validierbarJaJa (z.B. bei check-digits)
+
+---
+
+
+Entitätstyp:
+
+
+Entitätstyp mit Attributen:
+
+
+Beziehungen:
+Kardinalitäten
+
+Zweistellige Beziehungen
+
+
+Zur Erläuterung einer Beziehung ist es wichtig, die Beziehung getrennt nach beiden Richtungen zu lesen.
+
+Vom ERM zu einem Datenbankschema
+
+Auf dem Papier sehen sich die Darstellung vom Datenbankschema und ERM sehr ähnlich.
+
+Umsetzung von 1:m Beziehungen
+Von einem zu vielen.
+
+
+
+
+Umsetzung von n:m
+von vielen zu vielen
+
+
+Beziehungen bei abhängigen Entitätstypen (weak entities)
+
+
+Eine Entität heißt abhängige Entität oder engl. weak entity, wenn diese nicht durch eigene Attribute identifiziert werden kann. 
+
+Beispiel: Kinder von Mitarbeitern, bei denen die Firma die Kindergeldzahlung verwaltet. Im Beispiel werden Kinder nur abhängig vom Mitarbeiter eindeutig identifiziert.
+
+
