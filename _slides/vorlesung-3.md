@@ -43,7 +43,7 @@ class: center, middle
 
 3. Datenbank Realisierung
   * Implementierung des Modells
-  * Verabreiten der Daten 
+  * Verarbreitung der Daten 
 
 4. System zur Verarbeitung und Speicherung
   * Datenbank im Betrieb: PostgreSQL
