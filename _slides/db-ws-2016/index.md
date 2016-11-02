@@ -1,5 +1,6 @@
 ---
 layout: page
+slide-path: "/slides/db-ws-2016"
 title: Modul Datenbanken IFI WS 2016/17
 ---
 
@@ -13,8 +14,9 @@ title: Modul Datenbanken IFI WS 2016/17
 
 ## Vorlesungsfolien
 
-* [Einfuehrung](/slides/db-ws-2016/intro.html): Einfuehrung (Daten und Datenbanken)
-* [2. Vorlesung](/slides/db-ws-2016/vorlesung-2.html): Datenbanksysteme und Datenbankentwurf
+* [Einfuehrung]({{page.slide-path}}/intro.html): Einfuehrung (Daten und Datenbanken)
+* [2. Vorlesung]({{page.slide-path}}/vorlesung-2.html): Datenbanksysteme und Datenbankentwurf (2016-10-26)
+* [3. Vorlesung]({{page.slide-path}}/vorlesung-3.html): Vom Datenbankentwurf zur Implementierung (2016-11-02)
     
 ## Projektarbeit
  [So sieht die Projektarbeit aus](https://www.dropbox.com/s/l16bg9f7i6cfrmj/datenbanken-projekt.pdf?dl=1)
