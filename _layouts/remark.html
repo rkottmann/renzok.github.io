@@ -25,6 +25,20 @@
         max-width: 100%;
       }
       
+      table, th, td {
+         border: 1px solid black;
+      }
+      
+      th, td {
+        padding: 5px;
+        text-align: left;
+      }
+      
+      th {
+        background-color: #4CAF50;
+       color: white;
+      }
+      
       .column:first-of-type {float:left}
       .column:last-of-type {float:right}
 
@@ -32,8 +46,8 @@
         .split-30 .column:last-of-type {width: 70%}
         .split-40 .column:first-of-type {width: 40%}
         .split-40 .column:last-of-type {width: 60%}
-        .split-50 .column:first-of-type {width: 50%}
-        .split-50 .column:last-of-type {width: 50%}
+        .split-50 .column:first-of-type {max-width: 50%;padding-right: 10px}
+        .split-50 .column:last-of-type {max-width: 50%;padding-left: 10px}
         .split-60 .column:first-of-type {width: 60%}
         .split-60 .column:last-of-type {width: 40%}
         .split-70 .column:first-of-type {width: 70%}
