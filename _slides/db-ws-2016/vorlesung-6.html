@@ -1,0 +1,330 @@
+---
+layout: remark
+title: Datenbank Implementierung mit Beziehungen 
+slide-path: "/slides/db-ws-2016"
+---
+
+# Modul Datenbanken
+# Vorlesung 6
+# {{ page.title }}
+
+###### IFI Wintersemester 2016/17
+by Renzo Kottmann
+
+<a rel="license"
+href="https://creativecommons.org/licenses/by-nc/4.0/"><img
+alt="Creative Commons License" style="border-width:0"
+src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br
+/>This work is licensed under a <a rel="license"
+href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons
+Attribution-NonCommercial 4.0 International License</a>.
+
+---
+# Beim letzten Mal besprochen
+
+* [Constraints auf einzelnen Tabellen]( {{page.slide-path}}/vorlesung-5.html#4)
+
+# Beim letzten Mal __NICHT__ fertig besprochen
+
+* [SQL Implementierung von Entitaets-Beziehungen]({{page.slide-path}}/vorlesung-5.html#18)
+---
+
+# Welche Beziehungen?
+
+![erd-teilnehmerinnen](/img/dbl/pizza-unconnected-erd.png)
+
+---
+# Welche Beziehungen?
+### Dieses ERD entsprach nicht der Implementierung aus Vorlesung 5
+![erd-teilnehmerinnen](/img/dbl/pizza-connected-erd-v1.png)
+---
+# Welche Beziehungen?
+### Korrigiert!
+![erd-teilnehmerinnen](/img/dbl/pizza-connected-erd-2016-v1.png)
+
+---
+# Umsetzung der Beziehungen
+
+* Durch Foreign Keys (Fremdschluessel)
+* Legen die genauen Bedingung der Beziehung fest
+  * Wichtige Frage: Was identifiziert eine Beziehung?!?
+
+---
+class: split-40
+# Foreign Keys (1 to many)
+
+.column[
+* Stellt Verknuepfungen zwischen Relationen/Tabellen her
+ * Die Abhaengige Relation referenziert die Quell-Relation 
+]
+
+.column[
+```sql
+CREATE TABLE image (
+  location text PRIMARY KEY,
+  name text 
+    NOT NULL 
+	DEFAULT 'placeholder',
+  copyright text 
+    NOT NULL DEFAULT 'unknown',
+  type text 
+    NOT NULL DEFAULT 'unknown'
+);
+CREATE TABLE pizza (
+  name text 
+    check (name != ''::text) 
+	PRIMARY KEY,
+  img text NOT NULL 
+    DEFAULT 'placeholder' 
+	REFERENCES image (location)
+	-- Referenz auf PK von image
+);
+
+```
+]
+
+---
+class: split-50
+# Foreign Keys (1 to many)
+
+.column[
+
+* Werte-basiert
+ * Werte der Quell-Relation muessen in abhaengige Relation eingetragen werden
+
+
+```sql
+INSERT INTO image 
+ (location, copyright, type)
+VALUES
+ ('file://here', 'Renzo', 'png');
+
+INSERT INTO pizza 
+ (name,img)
+VALUES 
+ ('Salami', 'file://here');
+```
+]
+
+.column[
+```sql
+CREATE TABLE image (
+  location text PRIMARY KEY,
+  name text 
+    NOT NULL 
+	DEFAULT 'placeholder',
+  copyright text 
+    NOT NULL DEFAULT 'unknown',
+  type text 
+    NOT NULL DEFAULT 'unknown'
+);
+CREATE TABLE pizza (
+  name text 
+    check (name != ''::text) 
+	PRIMARY KEY,
+  img text NOT NULL 
+    DEFAULT 'placeholder' 
+	REFERENCES image (location)
+	-- referenz auf PK von image
+);
+```
+]
+---
+class: split-40
+# Foreign Keys (1 to many)
+
+.column[
+
+* Bei Einfuegung einer Zeile in abhaengiger Relation:
+ * Garantiert existenz des Quell-Eintrags 
+* Bei Loeschung einer Quell-Zeile
+ * Garantiert, dass Quell-Zeile nur geloescht werden kann, 
+ wenn es keinen Eintrag in abhaengiger Relation gibt
+]
+
+.column[
+```sql
+CREATE TABLE image (
+  location text PRIMARY KEY,
+  name text 
+    NOT NULL 
+	DEFAULT 'placeholder',
+  copyright text 
+    NOT NULL DEFAULT 'unknown',
+  type text 
+    NOT NULL DEFAULT 'unknown'
+);
+CREATE TABLE pizza (
+  name text 
+    check (name != ''::text) 
+	PRIMARY KEY,
+  img text NOT NULL 
+    DEFAULT 'placeholder' 
+	REFERENCES image (location)
+	-- referenz auf PK von image
+);
+
+```
+]
+
+---
+# Foreign Keys (many to many) 
+
+![erd-teilnehmerinnen](/img/dbl/pizza-connected-erd-2016-v1.png)
+
+---
+# Foreign Keys (many to many) 
+* Implementierung durch neue "Beziehungs"-Relation
+![erd-teilnehmerinnen](/img/dbl/pizza-compilation-2016.png)
+
+---
+class: split-40
+# Foreign Keys (many to many) 
+
+.column[
+ * Neue Tabelle, die auf die beiden existierenden referenziert
+ * Primary Key der neuen Tabelle ist Kombination der PKs der existierenden Tabellen
+]
+
+.column[
+```sql
+CREATE TABLE pizza (
+  name text 
+    check ( name != ''::text) 
+	PRIMARY KEY,
+  img text NOT NULL 
+    DEFAULT 'placeholder' 
+	REFERENCES image (location)
+	-- Referenz auf PK von image
+);
+CREATE TABLE topping (
+  name text PRIMARY KEY,
+  img text 
+);
+CREATE TABLE pizza_compilation (
+  pizza_name text
+    references pizza(name),
+  topping_name text
+    references topping(name),
+  PRIMARY KEY (pizza_name, topping_name)
+);
+```
+]
+---
+# Vertiefung Wertebereiche (Domaenen)
+
+## Arten von Daten
+1. Zahlen (integer, numeric, double precision...)
+2. Free Text (text, char)
+3. Enumeration
+2. Code-List
+5. Komplexe Zusamensetzungen der oberen "einfachen Arten"
+   Z.B. Telefonnummern, Zeitstempel (Datum + Uhrzeit)...
+---
+# Enumeration & Code List
+1. **Enumeration**:
+   Liste von Werten, die in Zukunft wenig bis gar nicht geaendert wird
+   
+   z.B. `Geschlecht = {maennlich,weiblich}`
+1. **Code-List**:
+   Liste von Werten, die in Zukunft haeufig und zu jeder Zeit geaendert wird
+---
+# Implementierung mit SQL Commands
+1. `check` constraint: 
+   
+   `gender text check (gender in ['maennlich','weiblich'])`
+2. [Enumerated Types](http://www.postgresql.org/docs/9.3/static/datatype-enum.html):
+
+   `CREATE TYPE gender AS ENUM ('maennlich','weiblich');` 
+---
+class: split-40
+# Implementierung mit Hilfe einer Tabelle
+
+## Beispiel Kunde
+
+.column[
+ ![kunde-geschlecht-lookup-erd](/img/dbl/kunde-geschlecht-lookup-erd.png)
+]
+
+.column[
+~~~sql
+CREATE TABLE geschlecht (
+  name text PRIMARY KEY
+);
+INSERT INTO geschlecht 
+  VALUES ('maennlich'),('weiblich');
+CREATE TABLE kunde (
+  name text PRIMARY KEY,
+  alter integer,
+  geschlecht text 
+    REFERENCES geschlecht(name)
+);
+INSERT INTO kunde (name, alter, geschlecht) 
+   VALUES ('renzo','100','maennlich');
+~~~
+]
+---
+# Aktuelles ER Diagram
+
+![erd-teilnehmerinnen](/img/dbl/pizza-compilation-2016.png)
+
+---
+# SQL Kommando: CREATE DOMAIN
+
+* Definition von [eigenen Datentypen](http://www.postgresql.org/docs/current/static/sql-createdomain.html) basierend of existierenden
+
+~~~sql
+CREATE DOMAIN url AS text CHECK (
+  VALUE ~ '^file|http'
+);
+~~~
+---
+class: center, middle
+# Von Anfragen zu Abfragen
+---
+# Anfragen
+* Gruende fuer relationale Datenbanken:
+  
+  1. Persistente, sichere und strukturierte Datenspeicherung
+  1. Effiziente Anfragen! 
+     Z.b. wieviel Umsatz hat die Pizzeria am 15.10.2015 gemacht? 
+--
+
+* SQL hat nur einen Befehl dafuer: 
+  **SELECT**
+
+---
+# Anatomy von SELECT
+
+~~~sql
+SELECT *        -- welche Spalten sollen wie angezeigt werden
+  FROM tabelle  -- Daten welcher Tabelle 
+ WHERE true     -- Selektionesbedingungen: nur Daten, die Kriterium entsprechen
+~~~
+--
+Kann gelesen werden als:
+
+     Zeige mir alle Spalten der Tabelle "tabelle" an und davon alle Zeilen.
+--
+Datenbank interpretiert das in der Reihenfolge `FROM`, `WHERE`, `'*'` (Spalten)
+
+     Hole aus der Tabelle "tabelle" alle Zeilen die der Bedingung 'true' entsprechen
+	 und zeige davon alle Spalten an.
+---
+# Konkretes SELECT
+
+~~~sql
+SELECT *        -- * (asterisk) heisst alle spalten, wie sie sind
+  FROM "order"; -- Daten der Tabelle mit dem Namen "order"
+~~~
+Boolsche `WHERE` Bedingung kann weggelassen werden, wenn man alle Zeilen will.
+
+---
+
+
+name: referenzen
+# Referenzen:
+
+* M. Unterstein and G. Matthiessen, Relationale Datenbanken und SQL in
+  Theorie und Praxis. Berlin, Heidelberg: Springer Berlin Heidelberg,
+  2012.
