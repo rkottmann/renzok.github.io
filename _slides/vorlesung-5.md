@@ -256,7 +256,7 @@ Es gibt einige Funktionen u.a. auch `min`, `max` und `sum`.
 class: center, middle
 # Abfragen ueber mehere Tabellen
 ---
-# Revisted: Anatomy von SELECT
+# Revisited: Anatomy von SELECT
 
 ~~~sql
 SELECT *        -- welche Spalten sollen wie angezeigt werden
