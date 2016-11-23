@@ -24,6 +24,8 @@ title: Modul Datenbanken IFI WS 2016/17
   * [PDF Version]({{page.slide-path}}/vorlesung-4.pdf)
 * [5. Vorlesung]({{page.slide-path}}/vorlesung-5.html): Datenbank Implementierung mit Integritätsbedingungen (2016-11-16)
   * [PDF Version]({{page.slide-path}}/vorlesung-5.pdf)
+* [6. Vorlesung]({{page.slide-path}}/vorlesung-6.html): Datenbank Implementierung mit Beziehungen (2016-11-23)
+  * [PDF Version]({{page.slide-path}}/vorlesung-6.pdf)
   
   
 ## Projektarbeit
