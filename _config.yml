@@ -1,11 +1,15 @@
 # Site settings
 title: Thought.out.printf()
 #email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
+
+description: > # this means to ignore/fold newlines until "baseurl:"
   Becoming a literate scientific developer, building common understanding.
 baseurl: "" # the subpath of your site, e.g. /blog/
+
 url: "http://renzok.github.io" # the base hostname & protocol for your site
+
 twitter_username: renzokott
+
 github_username:  renzok
 
 # Build settings
@@ -27,3 +31,14 @@ highlighter: rouge
 collections:
   slides:
     output: true
+  style-rules:
+    output: true
+    permalink: /gtkme/styles/:categories/:slug
+
+defaults:
+  - scope:
+      path: ""
+      type: style-rules
+    values:
+      layout: rule
+      author: Renzo Kottmann
