@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+{% capture post_title %}{{ page.name | default: page.title }}{% endcapture %}
+
+<div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Rule: {{ post_title }}</h1>
+    <p class="post-meta">
+     added {{ page.date | date: "%b %-d, %Y" }}
+     {% if page.author %} 
+       • by {{ page.author }}
+     {% endif %}
+     {% if page.from %} 
+       • <a href="{{ page.from }}"/>source</a>
+     {% endif %}
+    </p>
+  </header>
+
+  <article class="post-content">
+    {{ content }}
+  </article>
+
+  <footer>
+     <p class="post-meta"><a href="../{{ page.categories[0]}}">back to {{ page.categories[0]}}</a>
+  </footer>
+</div>

@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+ 
+
+<div class="home">
+
+  <h1 class="page-heading">Docker Rules</h1>
+
+  <ul class="post-list">
+    {% for rule in site.style-rules %}
+      {% capture my_variable %}{{ rule.name | default: rule.title }}{% endcapture %}
+      <li>
+        <h4>
+          <a class="post-link" href="{{ rule.url | prepend: site.baseurl }}">{{ my_variable }}</a>
+        </h4>
+        <p>{{ rule.excerpt | strip_html | strip_newlines | strip}}</p>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
