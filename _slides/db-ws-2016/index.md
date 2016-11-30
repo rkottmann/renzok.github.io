@@ -6,7 +6,7 @@ title: Modul Datenbanken IFI WS 2016/17
 
 ## Verlauf
 * [Veranstaltungsplan ](https://www.dropbox.com/s/08j620la7m34spc/veranstaltungsplan.pdf?dl=1)
-  * Bis Dezember im wesentlichen Vorlesungen / Uebungen
+  * Bis Dezember im wesentlichen Vorlesungen / Übungen
 * Januar gemeinsame Projektarbeit
     * d.h. ich mache auch **mein** Projekt
     * iterative Erweiterung
@@ -14,7 +14,7 @@ title: Modul Datenbanken IFI WS 2016/17
 
 ## Vorlesungsfolien
 
-* [Einfuehrung]({{page.slide-path}}/intro.html): Einfuehrung (Daten und Datenbanken)
+* [Einführung]({{page.slide-path}}/intro.html): Einführung (Daten und Datenbanken)
     * [PDF Version]({{page.slide-path}}/intro.pdf)
 * [2. Vorlesung]({{page.slide-path}}/vorlesung-2.html): Datenbanksysteme und Datenbankentwurf (2016-10-26)
   * [PDF Version]({{page.slide-path}}/vorlesung-2.pdf)
@@ -26,6 +26,8 @@ title: Modul Datenbanken IFI WS 2016/17
   * [PDF Version]({{page.slide-path}}/vorlesung-5.pdf)
 * [6. Vorlesung]({{page.slide-path}}/vorlesung-6.html): Datenbank Implementierung mit Beziehungen (2016-11-23)
   * [PDF Version]({{page.slide-path}}/vorlesung-6.pdf)
+* [7. Vorlesung]({{page.slide-path}}/vorlesung-7.html): Datenbank Implementierung mit Beziehungen und Abfragen (2016-11-30)
+  * [PDF Version]({{page.slide-path}}/vorlesung-7.pdf)
   
   
 ## Projektarbeit
