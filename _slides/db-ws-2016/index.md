@@ -68,4 +68,4 @@ title: Modul Datenbanken IFI WS 2016/17
 
 [1]	[“Martin fowler on databases.”](http://martinfowler.com/bliki/DatabaseThaw.html) [Accessed: 2016-10-26].
 
-[2]	[“Comparison of different SQL implementations.”](http://troels.arvin.dk/db/rdbms/) Letze Aenderung in 2014 [Accessed: 2016-10-26].
+[2]	[“Comparison of different SQL implementations.”](http://troels.arvin.dk/db/rdbms/) Letzte Aenderung in 2014 [Accessed: 2016-10-26].
