@@ -38,7 +38,11 @@ collections:
 defaults:
   - scope:
       path: ""
+      type:
+  - scope:
+      path: ""
       type: style-rules
     values:
       layout: rule
       author: Renzo Kottmann
+      
