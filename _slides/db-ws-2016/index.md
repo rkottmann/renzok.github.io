@@ -28,6 +28,9 @@ title: Modul Datenbanken IFI WS 2016/17
   * [PDF Version]({{page.slide-path}}/vorlesung-6.pdf)
 * [7. Vorlesung]({{page.slide-path}}/vorlesung-7.html): Datenbank Implementierung mit Beziehungen und Abfragen (2016-11-30)
   * [PDF Version]({{page.slide-path}}/vorlesung-7.pdf)
+* [8. Vorlesung]({{page.slide-path}}/vorlesung-8.html): Von Anfragen zu Abfragen (2016-12-07)
+  * [PDF Version]({{page.slide-path}}/vorlesung-8.pdf)  
+  
   
   
 ## Projektarbeit
