@@ -30,6 +30,8 @@ title: Modul Datenbanken IFI WS 2016/17
   * [PDF Version]({{page.slide-path}}/vorlesung-7.pdf)
 * [8. Vorlesung]({{page.slide-path}}/vorlesung-8.html): Von Anfragen zu Abfragen (2016-12-07)
   * [PDF Version]({{page.slide-path}}/vorlesung-8.pdf)  
+* [9. Vorlesung]({{page.slide-path}}/vorlesung-9.html): Normalisierung (2016-12-21)
+  * [PDF Version]({{page.slide-path}}/vorlesung-9.pdf)  
   
   
   

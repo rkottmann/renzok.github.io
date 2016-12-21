@@ -12,9 +12,6 @@ twitter_username: renzokott
 
 github_username:  renzok
 
-# Build settings
-#markdown: kramdown
-
 markdown: kramdown
 
 kramdown:
@@ -22,10 +19,6 @@ kramdown:
   hard_wrap: false
 
 highlighter: rouge
-
-# deprectaed by github pages:
-# redcarpet:
-# extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
 
 
 collections:
@@ -36,9 +29,6 @@ collections:
     permalink: /gtkme/styles/:categories/:slug
 
 defaults:
-  - scope:
-      path: ""
-      type:
   - scope:
       path: ""
       type: style-rules
