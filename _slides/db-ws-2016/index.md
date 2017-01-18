@@ -32,6 +32,8 @@ title: Modul Datenbanken IFI WS 2016/17
   * [PDF Version]({{page.slide-path}}/vorlesung-8.pdf)  
 * [9. Vorlesung]({{page.slide-path}}/vorlesung-9.html): Normalisierung (2016-12-21)
   * [PDF Version]({{page.slide-path}}/vorlesung-9.pdf)  
+* [10. Vorlesung]({{page.slide-path}}/vorlesung-10.html): Transaktionen (2017-01-18)
+  * [PDF Version]({{page.slide-path}}/vorlesung-10.pdf)  
   
   
   

@@ -1,0 +1,135 @@
+---
+layout: remark
+title: Transaktionen
+slide-path: "/slides/db-ws-2016"
+---
+
+# Modul Datenbanken
+# Vorlesung 10
+# {{ page.title }}
+
+###### IFI Wintersemester 2016/17
+by Renzo Kottmann
+
+<a rel="license"
+href="https://creativecommons.org/licenses/by-nc/4.0/"><img
+alt="Creative Commons License" style="border-width:0"
+src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br
+/>This work is licensed under a <a rel="license"
+href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons
+Attribution-NonCommercial 4.0 International License</a>.
+
+---
+# Transaktion
+
+Eine Transkation ist eine Menge von Operationen die atomic, consistent, isoliert und dauerhaft sind (ACID).
+
+---
+
+# ACID 
+
+* __A__lle Aenderungen mit 
+
+  __C__hirurgischer integritaet in einem 
+  
+  __I__soliertem Vorgang zusammengefasst und mit 
+  
+  __D__auerhaftem Ergebnis.
+
+---
+Die wichtigsten Eigenschaften im Einzelnen:
+ 
+* Atomic
+
+Eine Transaktion gruppiert mehrere Anweisungen in eine einzige atomare Operation in der "Alles oder Nichts” stattfindet.
+
+* Consistent
+
+Eine Transaktion bringt eine Datenbank von einem konsistenten Zustand in den nächsten.
+
+* Isolated
+
+Transaktion ist unabhängig, d.h. sie wird nicht durch konkurrierende Transaktionen beeinflusst.
+
+* Durable
+
+Bei der erfolgreichen Beendigung einer Transaktion sind alle Änderungen dauerhaft gespeichert.
+
+---
+
+# Konsistenz bei sehr vielen gleichzeitigen Aenderungen
+
+* Transaktionen garantieren, dass trotz gleichzeitiger Aenderungen von vielen 
+verschiedenen Benuztern, alle Aenderungen konsistent sind.
+* Tatsaechlich ist jede einzelne SQL-Anweisung bei den meisten Datenbank implizit eine einzelne Transaktion, 
+d.h. eine Gruppe von Anweisungen mit nur einer Anweisung
+
+---
+# Transaktion mit meheren Anweisungen
+
+[PostgreSQL Documentation fuer syntaktische Details und fortgeschrittene Eigenschaften](https://www.postgresql.org/docs/9.3/static/sql-begin.html)
+
+Ausgangslage: Datenbank ist in einem super gutem Zustand: Z1
+
+
+```sql
+-- Transaktion wird angefangen:
+BEGIN;
+SQL Anweisung 1;
+SQL Anweisung 2;
+...
+SQL Anweisung N;
+-- Bleibt offen bis:
+COMMIT;
+```
+Wenn Transaktion __gut laeuft__, d.h. alle Anweisungen korrekt sind:
+
+Datenbank ist in einem super gutem Zustand: Z2
+
+Wenn Transaktion __fehlschlaegt__, d.h. nur eine der Anweisungen zum Fehler fuehrt:
+
+Datenbank wird in den vorherigen Zustand zurueck gesetzt (rollback): Z1
+
+[PostgreSQL Documentation fuer syntaktische Details und fortgeschrittene Eigenschaften](https://www.postgresql.org/docs/9.3/static/sql-begin.html)
+
+---
+# Gewollter Transaktionsabbruch
+
+```sql
+-- Transaktion wird angefangen:
+BEGIN;
+SQL Anweisung 1;
+SQL Anweisung 2;
+...
+SQL Anweisung N;
+-- Bleibt offen bis:
+ROLLBACK;
+```
+Wenn Transaktion __fehlschlaegt__ oder __erfolgreich__ ist:
+
+Datenbank wird in den vorherigen Zustand zurueck gesetzt (rollback): Z1
+
+---
+# DDL Entwicklung
+
+* PostgreSQL ist einer der wenigen DBMS, die auch DDL Anweisungen in Transaktionen ausfuehren kann
+
+```sql
+-- Transaktion wird angefangen:
+BEGIN;
+CREATE TABLE test (id integer PRIMARY KEY);
+INSERT INTO test VALUES (1),(2),(3);
+SELECT * from test;
+UPDATE test SET id = id + 3;
+SELECT * from test;
+ROLLBACK;
+```
+
+* Sehr nuetzlich fuer iterative, evolutionaere Datenbankentwicklung
+
+---
+# Referenzen:
+
+* M. Unterstein and G. Matthiessen, Relationale Datenbanken und SQL in
+  Theorie und Praxis. Berlin, Heidelberg: Springer Berlin Heidelberg,
+  2012.
