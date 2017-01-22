@@ -20,6 +20,8 @@ kramdown:
 
 highlighter: rouge
 
+gems:
+  - jekyll-redirect-from
 
 collections:
   slides:
@@ -27,7 +29,9 @@ collections:
   style-rules:
     output: true
     permalink: /gtkme/styles/:categories/:slug
-
+  lecture:
+    output: true  
+    
 defaults:
   - scope:
       path: ""
