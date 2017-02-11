@@ -11,7 +11,7 @@ I am [@renzokott on Twitter](https://twitter.com/{{ site.twitter_username}}) and
 a Facebook account, but you can find me on [LinkedIn](https://de.linkedin.com/in/renzokottmann).
 
 
-I was a comic and non-fiction books kid and as teen became a reader of
+As teen I was a comic and non-fiction books kid and  became a reader of
 serious fiction from ranging from author's like Assimov and Arthur
 C. Clarke in science fiction; William S. Burroughs, Jack Kerouc and
 others from the Beat Generation; french writers (sometimes called
