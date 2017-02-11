@@ -8,4 +8,5 @@ name: "Ephemeral containers"
 
 A container should be as ephemeral as possible.
 
-That is it is self-contained and by runing it with `--rm` the container is fully removed from the system.
+
+That is, it is self-contained and by runing it with `--rm` the container is fully removed from the system after termination.
