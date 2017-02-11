@@ -51,8 +51,8 @@ Wie kann man diese Versionsverwaltungsregeln im Kontext von GitHub Pages so stru
    1. filename ohne versionsnummer (zum editieren)
    1. fileanme mit versionsnummer (hoechste nummer ist aktuellste version)
    
-indem man edieiteren nur im filenamen ohne verisonsnummer zulaesst und aenderungen 
-am veriosnfile verhindert, gewinnt man preservation und verisonsnummern automatische versionierung (user muss nicht mehr dran denken)
+indem man editieren nur im filenamen ohne verisonsnummer zulaesst und Aenderungen 
+am versionsfile verhindert, gewinnt man preservation und verisonsnummern automatische versionierung (user muss nicht mehr dran denken)
 
 
 Problem: veriosnskommentar
