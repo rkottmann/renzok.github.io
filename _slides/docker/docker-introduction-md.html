@@ -1,0 +1,11 @@
+---
+test: hi
+
+image_repo: "https://raw.githubusercontent.com/renzok/docker_foundry_ws_12_16/master/images"
+---
+
+{% assign file_name = page.path | split:"/" | last | split:"." | first %}
+
+      
+{% include_relative docker-introduction.md %}
+         

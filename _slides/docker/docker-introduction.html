@@ -1,0 +1,98 @@
+---
+
+---
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>	Docker, its possibilities and how to start | December, 2016 | Bérénice Batut</title>
+
+        <link rel="stylesheet" href="/vendor/reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="/vendor/reveal.js/css/theme/simple.css" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="/vendor/reveal.js/lib/css/zenburn.css">
+        <link rel="stylesheet" href="Font-Awesome/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="css/custom.css" id="theme">
+<style>
+.reveal .well{
+  color:white;
+  min-height:20px;padding:19px;margin-bottom:20px;background-color:#444;
+  border:1px solid #ccc;
+  font-size:80%; 
+
+  }
+  .reveal .well em {
+    color: #aaffaa;
+  }
+  .col3 {
+      float: left;
+      width: 33.33333333%;
+   }
+
+   .col2 {
+       float: left;
+       width: 50%;
+       margin-bottom:60px;
+    }
+
+</style>
+        <!-- Printing and PDF exports -->
+        <script>
+          if( window.location.search.match( /print-pdf/gi ) ) {
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'reveal.js/css/print/pdf.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+          }
+        </script>
+        <!--<script>
+            if (window.location.search.match(/print-pdf/gi)) {
+                document.write('<link rel="stylesheet" href="css/pdf.css" type="text/css">');
+            }
+        </script>-->
+
+        <!--[if lt IE 9]>
+        <script src="reveal.js/lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section data-markdown="docker-introduction-md.html"
+                    data-separator="^---\n"
+                    data-separator-vertical="^----\n"
+                    data-separator-notes="^Note:"
+                >
+                </section>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="/vendor/reveal.js/lib/js/head.min.js"></script>
+        <script type="text/javascript" src="/vendor/reveal.js/js/reveal.js"></script>
+        <script type="text/javascript">
+            Reveal.initialize({
+                slideNumber: !window.location.search.match(/print-pdf/gi),
+                history: true,
+
+                theme: Reveal.getQueryHash().theme,
+                transition: Reveal.getQueryHash().transition || 'concave',
+
+                dependencies: [
+                    { src: '/vendor/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: '/vendor/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '/vendor/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '/vendor/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: '/vendor/reveal.js/plugin/math/math.js', async: true },
+                    { src: '/vendor/reveal.js/plugin/notes/notes.js', async: true },
+                ]
+            });
+        </script>
+
+    </body>
+</html>
