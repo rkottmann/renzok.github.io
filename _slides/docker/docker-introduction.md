@@ -195,7 +195,7 @@ A different architectural approach
 
 ----
 
-### Containers? Images?
+### Images? Containers?
 
 ![]({{ page.image_repo }}/docker_concept_image_container.png)
 
@@ -575,35 +575,6 @@ Note: Need a Dockerfile. I will describe it later. Here it is just to give you a
 
 ![]({{ page.image_repo }}/docker_concept_push.png)
 
-----
-
-### <i class="fa fa-pencil"></i> Hands on! (1)
-
-Play with `quay.io/biocontainers/samtools:1.3--1`:
-
-1. Get the image
-2. Launch `samtools` container interactively
-  1. Print the help page for `samtools`
-3. Launch a `samtools` container in detach mode
-  1. Check if it exists and find its name
-  2. Stop it and restart it
-  3. Print the help page using this container
-
-----
-
-### <i class="fa fa-pencil"></i> Hands on! (2)
-
-Play with `quay.io/biocontainers/samtools:1.3--1`:
-
-1. Create locally a `samtool_dir` directory
-2. Launch an interactive container with a volume pointing at `samtool_dir` directory
-  1. Add a [toy sam file](https://raw.githubusercontent.com/samtools/samtools/develop/examples/toy.sam) into the local `samtool_dir` directory
-  2. Check if the existence of the file from inside the container
-  3. Visualize the content of the toy file with `samtools view` commands
-  4. Generate stats of the toy file into a `toy_stat` file into the local `samtool_dir` directory
-
-Note: data volume is the way to make your tool connecting 
-
 ---
 
 ## How to containerize your tools?
@@ -923,111 +894,10 @@ Note:
 - Build cache
 
 ----
-
+  
 ### <i class="fa fa-pencil"></i> Hands on!
 
 Create an image for your favorite tool
-
----
-
-![]({{ page.image_repo }}/BioContainers.png)
-
-----
-
-### BioContainers?
-
-> A community-driven project that provides <br>the infrastructure and basic guidelines to <br>create, manage and distribute <br>Bioinformatics Docker containers
-
-[http://biocontainers.pro/](http://biocontainers.pro/)
-
-----
-
-### 2017 BioContainers
-
-![]({{ page.image_repo }}/biocontainers_registry.png)
-
-<small>[http://biocontainers.pro/registry/](http://biocontainers.pro/registry/#/)</small>
-
-----
-
-### BioContainers specifications
-
-```sh
-# Base Image
-FROM biocontainers/biocontainers:latest
-
-# Metadata
-LABEL base.image="biocontainers:latest"
-LABEL version="3"
-LABEL software="Comet"
-LABEL software.version="2016012"
-LABEL description="an open source tandem mass spectrometry sequence database search tool"
-LABEL website="http://comet-ms.sourceforge.net/"
-LABEL documentation="http://comet-ms.sourceforge.net/parameters/parameters_2016010/"
-LABEL license="http://comet-ms.sourceforge.net/"
-LABEL tags="Proteomics"
-
-# Maintainer
-MAINTAINER Felipe da Veiga Leprevost
-
-...
-```
-
-----
-
-### Too much work to write a <br>BioContainer for a single tool?
-
-![]({{ page.image_repo }}/mulled_scheme.png)
-
-----
-
-### ![]({{ page.image_repo }}/conda_logo.png)
-
-- Open Source package manager
-- Independent of any programming language and OS
-- Fast, robust and easy package installation
-
-  ```
-  $ conda install deeptools
-  ```
-  
-- Installation and management of multiple versions
-
-Note: 
-- Independent of any programming language and OS: if developed first for python tools
-- Less than 1 minute to install deeptools with conda
-
-----
-
-### A Conda package<br><i class="fa fa-long-arrow-right"></i> Easy to write!
-
-![]({{ page.image_repo }}/conda_package.png)
-
-
-
-Note: Only 2 files + Extensive documentation
-
-----
-
-### ![]({{ page.image_repo }}/bioconda_logo.png)<br>for bioinformatics tools
-
-![]({{ page.image_repo }}/tool_development_bioconda_solution.png)
-
-- More than 1,700 bioinformatics packages
-- Big, fast-growing and newcomer-friendly community
-
-Note: 
-- Bioconda: a distribution of bioinformatics softwares using Conda
-- Started a year ago
-- Big (how much?)
-If you have a tool, we recommend you to develop a bioconda package for this
-
-
-----
-
-### <i class="fa fa-pencil"></i> Hands on!
-
-Develop a BioContainer for your favorite tool
 
 ---
 
