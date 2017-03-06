@@ -169,6 +169,11 @@ A different architectural approach
   - Rnning as isolated processes in user space on the host operating system
 
 ----
+### Containers are more portable and efficient
+
+![]({{ page.image_repo }}/container_vs_vm.png)
+
+----
 
 ## Docker Terminology
 
@@ -593,7 +598,9 @@ Note: Now I am sure all of you want to containerize his tool :)
 
 ### A Dockerfile?
 
-A text document that contains all the commands a user could call on the command line to assemble an image
+A text document that contains all commands to create an image.
+
+Each command has the this form:
 
 ```sh
 # Comment
@@ -605,20 +612,22 @@ Note: the paper describing the recipe for you container
 Review of the commands
 
 ----
+## Selected Instructions
+### Step by Step
+[Complete Documentation](https://docs.docker.com/engine/reference/builder)
+----
 
-### The instructions <br>[`FROM`](https://docs.docker.com/engine/reference/builder/#from)
+## [`FROM`](https://docs.docker.com/engine/reference/builder/#from)
 
 ```sh
-# Galaxy - Stable
-#
-# VERSION       Galaxy-central
+# Provide`s NCBI BLAST+ binaries and demo files
 
-FROM toolshed/requirements
+FROM renzok/debian:v1
 ...
 ```
 
 <small>
-[Galaxy Dockerfile](https://github.com/bgruening/docker-galaxy-stable/blob/master/galaxy/Dockerfile)
+[Complete NCBI BLAST+ Dockerfile](https://github.com/renzok/docker-ncbi-blast-demo/blob/master/Dockerfile)
 </small>
 
 Note: the Base Image for subsequent instructions
@@ -628,29 +637,30 @@ Important in any Dockerfile
 - FROM must be the first non-comment instruction in the Dockerfile.
 - FROM can appear multiple times within a single Dockerfile in order to create multiple images
   Simply make a note of the last image ID output by the commit before each new FROM command
+- However, best practice encourages to only use a single FROM per Dockerfile
 
 ----
 
-### The instructions <br>[`MAINTAINER`](https://docs.docker.com/engine/reference/builder/#/maintainer)
+## [`MAINTAINER`](https://docs.docker.com/engine/reference/builder/#/maintainer)
 
 ```sh
 ...
-MAINTAINER Björn A. Grüning, bjoern.gruening@gmail.com
+MAINTAINER Renzo Kottmann <renzo.kottmann@gmail.com> 
 ...
 ```
 
-Note: Author field of the generated images
+Note: Denotes the author(s) of the image
 
 ----
 
-### The instructions <br>[`ENV`](https://docs.docker.com/engine/reference/builder/#env)
+## [`ENV`](https://docs.docker.com/engine/reference/builder/#env)
 
 ```sh
 ...
-ENV GALAXY_RELEASE=release_16.07 \
-GALAXY_REPO=https://github.com/galaxyproject/galaxy \
-GALAXY_ROOT=/galaxy-central \
-GALAXY_CONFIG_DIR=/etc/galaxy
+ENV BLASTDB=/blast/db \
+    BLAST_VERSION="2.2.30"
+    
+ENV BLAST_DOWNLOAD_FILE=ncbi-blast-${BLAST_VERSION}+-src.tar.gz
 ...
 ```
 
@@ -660,31 +670,11 @@ Value in the environment of all “descendant” Dockerfile commands
 
 ----
 
-### The instructions <br>[`RUN`](https://docs.docker.com/engine/reference/builder/#run)
+## [`RUN`](https://docs.docker.com/engine/reference/builder/#run)
 
 ```sh
 ...
-# Create the postgres user before apt-get does (with the configured UID/GID) to facilitate sharing /export/postgresql with non-Linux hosts
-RUN groupadd -r postgres -g $GALAXY_POSTGRES_GID && \
-    adduser --system --quiet --home /var/lib/postgresql --no-create-home --shell /bin/bash --gecos "" --uid $GALAXY_POSTGRES_UID --gid $GALAXY_POSTGRES_GID postgres
-
-RUN apt-get -qq update && apt-get install --no-install-recommends -y apt-transport-https software-properties-common wget && \
-    apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D && \
-    sh -c "echo deb https://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list" && \
-    sh -c "echo deb http://research.cs.wisc.edu/htcondor/ubuntu/stable/ trusty contrib > /etc/apt/sources.list.d/htcondor.list" && \
-    sh -c "wget -qO - http://research.cs.wisc.edu/htcondor/ubuntu/HTCondor-Release.gpg.key | sudo apt-key add -" && \
-    apt-add-repository -y ppa:ansible/ansible && \
-    apt-add-repository -y ppa:galaxyproject/nginx && \
-    apt-get update -qq && apt-get upgrade -y && \
-    apt-get install --no-install-recommends -y mercurial python-psycopg2 postgresql-9.3 sudo samtools python-virtualenv \
-    nginx-extras=1.4.6-1ubuntu3.4ppa1 nginx-common=1.4.6-1ubuntu3.4ppa1 uwsgi uwsgi-plugin-python supervisor lxc-docker-1.9.1 slurm-llnl slurm-llnl-torque libswitch-perl \
-    slurm-drmaa-dev proftpd proftpd-mod-pgsql libyaml-dev nodejs-legacy npm ansible \
-    nano nmap lynx vim curl python-crypto python-pip python-gnuplot python-rpy2 python-psutil condor python-ldap \
-    gridengine-common gridengine-drmaa1.0 && \
-    pip install --upgrade pip && \
-    pip install ephemeris && \
-    apt-get purge -y software-properties-common && \
-    apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN mkdir -p ${BLASTDB}
 ...
 ```
 
@@ -695,16 +685,53 @@ Note:
 - \ (backslash) to continue a single RUN instruction onto the next line
 
 ----
-
-### The instructions <br>[`ADD`](https://docs.docker.com/engine/reference/builder/#add)/[`COPY`](https://docs.docker.com/engine/reference/builder/#copy)
-
 ```sh
 ...
-ADD ./bashrc $GALAXY_HOME/.bashrc
+RUN apt-get update && apt-get install -y \
+      gcc \
+      g++ \
+      cpio \
+      make \
+    && curl --remote-name --remote-time \
+       "ftp://ftp.ncbi.nih.gov/blast/executables/blast+/${BLAST_VERSION}/${BLAST_DOWNLOAD_FILE}" \
+    && tar zxpf ${BLAST_DOWNLOAD_FILE} --strip-components=1 \
+    && cd c++ \
+    && ./configure  \
+       --without-dbapi \
+       --without-fastcgi \
+       --without-ncbi-c  \
+       --without-sss \
+       --without-sssdb \
+       --without-internal \
+       --without-gui \
+       --without-local-lbsm \
+       --without-connext \
+       --without-debug \
+       --without-sge \
+    && make -j 3 \
+    && make install \
+    && cd .. \
+    && apt-get purge -y g++ gcc cpio make \
+    && apt-get autoremove -y \
+    && apt-get clean \
+    && rm -rf c++ \
+    && rm -r /var/lib/apt/lists/* ${BLAST_DOWNLOAD_FILE}
 ...
 ```
 
-<i class="fa fa-exclamation-triangle"></i> `COPY` is functionally similar to `ADD` but is preferred
+----
+
+## [`ADD`](https://docs.docker.com/engine/reference/builder/#add)/[`COPY`](https://docs.docker.com/engine/reference/builder/#copy)
+
+```sh
+...
+
+COPY bet_blaSHV.fasta ${BLASTDB}
+COPY query.fasta ${BLASTDB}
+...
+```
+
+<i class="fa fa-exclamation-triangle"></i> `COPY` and `ADD` are functionally similar. But `COPY` is preferred i.e. never use `ADD`.
 
 Note: copies new files, directories or remote file URLs from <src> and adds them to the filesystem of the container at the path <dest>
 
@@ -724,15 +751,20 @@ Consequently, the best use for ADD is local tar file auto-extraction into the im
 
 ----
 
-### The instructions <br>[`USER`](https://docs.docker.com/engine/reference/builder/#user)
+## [`USER`](https://docs.docker.com/engine/reference/builder/#user)
 
 
 ```sh
 ...
 # The following commands will be executed as User galaxy
-USER galaxy
+USER mate
 ...
+
 ```
+<small>
+[Choice of User name explained by Wikipedia](https://en.wikipedia.org/wiki/Mate_(naval_officer)) ;)
+<small>
+
 
 Note: 
 
@@ -742,13 +774,14 @@ Sets the user name or UID to use
 
 ----
 
-### The instructions <br>[`WORKDIR`](https://docs.docker.com/engine/reference/builder/#workdir)
+## [`WORKDIR`](https://docs.docker.com/engine/reference/builder/#workdir)
 
 ```sh
 ...
-WORKDIR $GALAXY_ROOT
+WORKDIR /home/mate
 ...
 ```
+
 
 Note: 
 
@@ -758,15 +791,12 @@ Note:
 
 ----
 
-### The instructions <br>[`EXPOSE`](https://docs.docker.com/engine/reference/builder/#expose)
+## [`EXPOSE`](https://docs.docker.com/engine/reference/builder/#expose)
 
 ```sh
 ...
-# Expose port 80 (webserver), 21 (FTP server), 8800 (Proxy), 9002 (supvisord web app)
+# Expose port 80 (webserver)
 EXPOSE :80
-EXPOSE :21
-EXPOSE :8800
-EXPOSE :9002
 ...
 ```
 
@@ -778,12 +808,12 @@ Note:
 
 ----
 
-### The instructions <br>[`VOLUME`](https://docs.docker.com/engine/reference/builder/#volume)
+## [`VOLUME`](https://docs.docker.com/engine/reference/builder/#volume)
 
 ```sh
 ...
-# Mark folders as imported from the host.
-VOLUME ["/export/", "/data/", "/var/lib/docker"]
+# Mount folder
+VOLUME ${BLASTDB}
 ...
 ```
 
@@ -798,11 +828,11 @@ Data volume: specially-designated directory within one or more containers that b
 
 ----
 
-### The instructions <br>[`VOLUME`](https://docs.docker.com/engine/reference/builder/#volume)
-#### Dockerfile example
+### [`VOLUME`](https://docs.docker.com/engine/reference/builder/#volume)
+#### Another Dockerfile example
 
 ```sh
-FROM ubuntu
+FROM renzok/debian:v1
 RUN mkdir /myvol
 RUN echo "hello world" > /myvol/greeting
 VOLUME /myvol
@@ -816,12 +846,12 @@ Creation of an image that causes docker run,
 
 ----
 
-### The instructions <br>[`CMD`](https://docs.docker.com/engine/reference/builder/#cmd)
+## [`CMD`](https://docs.docker.com/engine/reference/builder/#cmd)
 
 ```sh
 ...
-# Autostart script that is invoked during container start
-CMD ["/usr/bin/startup"]
+# Script/executable that is invoked during container start
+CMD ["/usr/bin/blastp"]
 ```
 
 Note:
@@ -831,44 +861,37 @@ Note:
 
 ----
 
-### Creating the image
+## Creating the image
 
 ```sh
-bebatut$ docker build .
-Sending build context to Docker daemon  2.56 kB
-Step 1 : FROM biocontainers/biocontainers:latest
- ---> 78f76aa0b4ab
-Step 2 : LABEL base.image "biocontainers:latest"
- ---> Running in bb45efa8fc7b
- ---> 50804d9e831c
-Removing intermediate container bb45efa8fc7b
-Step 3 : LABEL version "2"
- ---> Running in 5511ea44083a
- ---> 675c5b11b226
-Removing intermediate container 5511ea44083a
-Step 4 : LABEL software "Samtools"
- ---> Running in efdd16353421
- ---> 4349329b8832
-Removing intermediate container efdd16353421
-Step 5 : LABEL software.version "1.3.1"
- ---> Running in c698fe4a1bbe
- ---> 8cb8534ed3cc
-Removing intermediate container c698fe4a1bbe
-Step 6 : LABEL description "Tools for manipulating next-generation sequencing data"
- ---> Running in 3b64527a6f2e
- ---> 097ee57996fa
+$ docker build -t renzok/ncbi-blast-demo-full .
+
 ...
 ```
 ----
 
-### Dockerfile & Layers
+## Dockerfile/Images & Layers
 
 ![]({{ page.image_repo }}/dockerfile_layers.png)
 
+----
+## Dockerfile/Images & Layers
+![](https://databio.org/images/what_is_layered_filesystems_sm.png)
 
 ----
 
-### [Best practices](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/)
+## Dockerfile/Images & Layers
+
+![](https://docs.docker.com/engine/userguide/storagedriver/images/sharing-layers.jpg)
+----
+
+## Visualize existing images
+
+### [e.g. with MicroBadger](https://microbadger.com/)
+
+[Example of renzok/emacs image](https://microbadger.com/images/renzok/emacs)
+----
+## [Best practices](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/)
 
 - Containers should be ephemeral
 - Use a `.dockerignore` file
@@ -897,7 +920,7 @@ Note:
   
 ### <i class="fa fa-pencil"></i> Hands on!
 
-Create an image for your favorite tool
+Create your OWN image for your NGS tool
 
 ---
 
