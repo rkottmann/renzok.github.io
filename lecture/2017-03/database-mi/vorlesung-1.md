@@ -1,8 +1,8 @@
 
 # Datenbankbasierte Web-Anwendungen
-# {{ page.title }}
+# {{ page.title }} 
 ## Medieninformatik SoSe 2017
-
+ 
 Renzo Kottmann
 
 <a rel="license"
