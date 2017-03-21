@@ -39,4 +39,10 @@ defaults:
     values:
       layout: rule
       author: Renzo Kottmann
+  - scope:
+      path: "lecture"
+      type: "pages"
+    values:
+      layout: remark
+      author: Renzo Kottmann
       
