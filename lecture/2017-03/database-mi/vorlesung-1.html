@@ -1,0 +1,11 @@
+---
+layout: remark
+title: Einführung in Datenbanken
+
+---
+
+{% assign file_name = page.path | split:"/" | last | split:"." | first %}
+
+{% include_relative {{ file_name }}.md %}
+
+         
