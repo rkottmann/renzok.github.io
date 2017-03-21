@@ -1,3 +1,6 @@
+---
+
+---
 <!DOCTYPE html>
 <html>
   <head>
@@ -76,7 +79,7 @@
     {% assign file_name = page.path | split:"/" | last | split:"." | first %}
 
     <textarea id="source">
-      {% include_relative {{ file_name }}.md %}      
+      {{ content }}     
     </textarea>
  
 
