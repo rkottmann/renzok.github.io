@@ -9,7 +9,7 @@ Renzo Kottmann
 <a rel="license"
 href="http://creativecommons.org/licenses/by-nc/4.0/"><img
 alt="Creative Commons License" style="border-width:0"
-src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br
+src="https://licensebuttons.net/l/by-nc/4.0/88x31.png" /></a><br
 />This work is licensed under a <a rel="license"
 href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons
 Attribution-NonCommercial 4.0 International License</a>.
@@ -33,22 +33,10 @@ Attribution-NonCommercial 4.0 International License</a>.
 * Entwicklung einer Projektidee
 * Installation einer lokalen Datenbank
 * Erste Anwendungsdefinition des Projekts
-
----
-
-# Aufgabe 1: Projektidee
-
-* Entwickelt eine Projektidee, die am Ende des Semesters abgegeben wird
-* Überlegt mindestens fünf Anforderungen an die Web-Anwendung
-  * Formulierung als User Story:
   
-      `Als <Rolle> möchte ich <Was/Ziel/Wunsch>, um <Nutzen>`
-* Welche Daten braucht die Anwednung?
-  * Welche Entitätstypen mit welchen Attributen?
-
 ---
 
-# Aufgabe 2: Vorstellung der Projektidee
+# Aufgabe 1: Vorstellung der Projektidee
 
 Stellt die Projektidee mitsamt Anforderungen 
 dem Dozent schriftlich vor 
@@ -60,9 +48,22 @@ handschriftlich gezeigt werden
 des Semesters digital vorliegen
 
 ---
+
+# Aufgabe 2: Projektidee
+
+* Entwickelt eine Projektidee, die am Ende des Semesters abgegeben wird
+* Überlegt mindestens fünf Anforderungen an die Web-Anwendung
+  * Formulierung als User Story:
+  
+      `Als <Rolle> möchte ich <Was/Ziel/Wunsch>, um <Nutzen>`
+* Welche Daten braucht die Anwednung?
+  * Welche Entitätstypen mit welchen Attributen?
+
+---
 # Aufgabe 3: PostgreSQL Installation
 
 * Installiert die neueste Version von PostgreSQL 
 * Was ist die URL der zur Version passenden Dokumentation?
 * Wie heissen die per default installierten Datenbanken?
 * Wie kann man sich mit einer dieser Datenbanken verbinden?
+

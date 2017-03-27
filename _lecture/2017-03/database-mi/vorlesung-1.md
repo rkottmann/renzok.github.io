@@ -1,9 +1,8 @@
-
 # Datenbankbasierte Web-Anwendungen
 # {{ page.title }} 
 ## Medieninformatik SoSe 2017
  
-Renzo Kottmann
+Renzo Kottmann 
 
 <a rel="license"
 href="http://creativecommons.org/licenses/by-nc/4.0/"><img
@@ -549,4 +548,6 @@ Es gibt verschiedene Formen ERM zu notieren (textuell und/oder graphisch):
 ---
 
 # Danke fuer die Zusammenarbeit
+
+
 
