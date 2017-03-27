@@ -328,7 +328,7 @@ Datenverwaltungssystem: semistrukturierte Daten im Filesystem
 
 --
 1. Hohe Datenintegrität bzw. Konsistenz
-2. Mehrere Nutzer können gleichzeitg an den selben Daten arbeiten
+2. Mehrere Nutzer können gleichzeitg an denselben Daten arbeiten
 3. Klare Trennung von Struktur und Inhalt bzw. Daten
 3. Effiziente Suche in grossen Daten
 
