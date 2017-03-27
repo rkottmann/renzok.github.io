@@ -270,12 +270,14 @@ class: split-50
 ]
 
 .column[
-* DML = Data Manipluation Language:
-  Ändern, Einfügen, Löschen und lesender Zugriff
 * DDL = Data Defintion Language:
   Definition des Datenbankschemas
+* DML = Data Manipluation Language:
+  Ändern, Einfügen, Löschen und lesender Zugriff
+* DRL = Data Retrievel Language
+  Nicht standadisierte Bezeichnung des `SELECT` aus DML
 * DCL = Data Control Language:
-  Rechteverwaltung und Transaktionskontrolle
+  Rechteverwaltung und Transaktionskontrolle 
 ]
 
 ---
@@ -341,7 +343,7 @@ CREATE TABLE teilnehmer (
 --Spalten Name Datentyp,
   vorname text,
   nachname text,
-  -- Simpler (nicht bester Primary Key)
+  -- Simpler Primary Key, andere sind moeglich
   matrikel_nr integer PRIMARY KEY,
   email text,
   semester integer
@@ -370,7 +372,7 @@ VALUES
 ```
 ]
 
-s. http://www.postgresql.org/docs/9.3/interactive/dml-insert.html und http://www.postgresql.org/docs/9.3/interactive/sql-insert.html
+s. http://www.postgresql.org/docs/9.6/interactive/dml-insert.html und http://www.postgresql.org/docs/9.6/interactive/sql-insert.html
 
 ---
 
