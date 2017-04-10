@@ -181,7 +181,7 @@ class: split-60
 # SQL in PostgreSQL
 
 * Scheinbar viele SQL Kommandos
-  * [Sehr guter Überblick in der PostgreSQL Dokumentation](https://www.postgresql.org/docs/9.3/static/sql-commands.html)
+  * [Sehr guter Überblick in der PostgreSQL Dokumentation](https://www.postgresql.org/docs/9.6/static/sql-commands.html)
 * Die meisten sind __DDL__ Kommandos
   * `CREATE`, `DROP` oder `ALTER`
      * Jeweils ein Eintrag pro Datenbank-Objekt
@@ -191,7 +191,7 @@ class: split-60
 # Datenbank Anlegen
 
 * `CREATE DATABASE`
-   * [Dokumentation](https://www.postgresql.org/docs/9.3/static/sql-createdatabase.html)
+   * [Dokumentation](https://www.postgresql.org/docs/9.6/static/sql-createdatabase.html)
      
 ---
 # Praktische Anmerkungen
