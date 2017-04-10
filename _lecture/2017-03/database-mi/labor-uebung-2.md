@@ -28,20 +28,20 @@ Attribution-NonCommercial 4.0 International License</a>.
 # Aufgabe 4: 
 
 * Fertigt ein Entity Relationship Diagramm Eures Projektes an
-  * Entitaeten
+  * Entitäten
   * Attribute (am besten schon mit Datentypen)
   * Primary Keys
   * Beziehungen
 * Nicht Vergessen:
   * Legende 
-  * evtl. Erlaeuterne Saetze
+  * evtl. erläuterne Sätze
 
 ---
 
 # Aufgabe 5: 
 
-* Lege eine Datenbank an
-* Recherchiere was ein `SCHEMA/SCHEMATA` in PostgreSQL ist
+* Legt eine Datenbank an
+* Recherchiert was ein `SCHEMA/SCHEMATA` speziell in PostgreSQL ist
 * In welchem `SCHEMA/SCHEMATA` werden Datenbankobjekte wie Tabellen per default angelegt?
 
 ---
