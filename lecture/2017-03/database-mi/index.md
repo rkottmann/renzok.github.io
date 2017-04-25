@@ -14,13 +14,16 @@ layout: default
 | 2017-03-21 | Einfuehrung in Datenbanken | [Vorlesung 1](vorlesung-1.html) | [Vorlesung 1](vorlesung-1.pdf) |
 | 2017-03-28 | Entity Relationship Modellierung (ERM) & Structured Query Language (SQL) | [Vorlesung 2](vorlesung-2.html) | [Vorlesung 2](vorlesung-2.pdf) |
 | 2017-04-04 | Datenbank Schema Erstellung mit Structured Query Language (SQL) | [Vorlesung 3](vorlesung-3.html) | [Vorlesung 3](vorlesung-3.pdf) |
-| 2017-04-11 | "Datenbank Schema: Eigene Datentypen und Umsetzung von ERM Beziehungen" | [Vorlesung 4](vorlesung-4.html) | [Vorlesung 4](vorlesung-4.pdf) |
+| 2017-04-11 | Datenbank Schema: Eigene Datentypen und Umsetzung von ERM Beziehungen | [Vorlesung 4](vorlesung-4.html) | [Vorlesung 4](vorlesung-4.pdf) |
+| 2017-04-25 | Foreign Keys und Datenabfragen | [Vorlesung 5](vorlesung-5.html) | [Vorlesung 5](vorlesung-5.pdf) |
  
 ## Laboruebungen
 
 [Uebung 1](labor-uebung-1)
-
+ 
 [Uebung 2](labor-uebung-2)
+
+[Uebung 3](labor-uebung-3)
 
 
 ## Literatur
