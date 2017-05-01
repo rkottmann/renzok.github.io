@@ -2,6 +2,8 @@
  *  da es ja Work in Progress ist.
  */
 
+create extension if not exists "uuid-ossp";
+
 
 DROP TABLE IF EXISTS
   labor_abgabe,
@@ -43,6 +45,16 @@ VALUES
   ('x', '2017-03-21', '13:30'),
   ('y', '2017-03-28', '10:00'),
   ('z', '2017-03-28', '13:30');
+
+CREATE TABLE projekt_gruppe (
+  titel text 
+    PRIMARY KEY
+    CHECK ( titel != '' ) ,
+  thema text 
+    NOT NULL
+    DEFAULT ''
+);
+
   
 CREATE TABLE teilnehmer (
   vorname text 
@@ -59,20 +71,16 @@ CREATE TABLE teilnehmer (
   note numeric 
     default 'nan'
     NOT NULL,
+  projekt text
+    REFERENCES projekt_gruppe,
   labor text
+    --NOT NULL
     REFERENCES labor_gruppe(code),
   geschlecht text
-    REFERENCES geschlecht(name) on update cascade
+    REFERENCES geschlecht(name) on update cascade,
+  uid uuid default uuid_generate_v4()
 );
 
-CREATE TABLE projekt_gruppe (
-  titel text 
-    PRIMARY KEY
-    CHECK ( titel != '' ) ,
-  thema text 
-    NOT NULL
-    DEFAULT ''
-);
 
 CREATE TABLE labor_uebung (
   titel text 
@@ -96,6 +104,7 @@ INSERT INTO teilnehmer
   (geschlecht,vorname, nachname, matrikel_nr, email) 
 VALUES 
   ('maennlich','renzo','kottmann',007,'renzo@007.bond'),
+  ('weiblich','Zoe','Nice',044,'zoe@mi5.bond'),
   ('maennlich','peter','lustig',008,'peter@007.bond');
 
 
@@ -144,3 +153,30 @@ VALUES
   ('MIY', 'Labor Uebung 2'),
   ('MIY', 'Labor Uebung 3'),
   ('MyFridge', 'Labor Uebung 1');
+
+
+-- gib alle daten aller teilnehmer
+select * from Teilnehmer;
+
+-- Wieviele teilnehmer gibt es im kurs
+select count(*) from Teilnehmer;
+
+
+-- welches geschlecht hat renzo kottmann
+select geschlecht from Teilnehmer where vorname = 'renzo' and nachname = 'kottmann' ;
+
+-- Welche teilnehmer sind im hoeheren Semster als 3
+select * from Teilnehmer where semester < 3 ;
+
+-- Wieviele teilehmer sind semester > 3
+select count(*) from Teilnehmer where semester < 3 ;
+
+-- Wieviele semester haben alle studenten zusaamengenommen studiert und was ist der durchshcnitt
+select sum(semester) as summe_semester, 
+       avg(semester) as durchschnitt_semester 
+  from Teilnehmer;
+-- alle teil. deren vorname mit Z anfaengt
+select * 
+  from Teilnehmer 
+ where vorname ~* '^z';
+
