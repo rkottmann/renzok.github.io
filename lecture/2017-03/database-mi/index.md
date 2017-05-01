@@ -16,6 +16,7 @@ layout: default
 | 2017-04-04 | Datenbank Schema Erstellung mit Structured Query Language (SQL) | [Vorlesung 3](vorlesung-3.html) | [Vorlesung 3](vorlesung-3.pdf) |
 | 2017-04-11 | Datenbank Schema: Eigene Datentypen und Umsetzung von ERM Beziehungen | [Vorlesung 4](vorlesung-4.html) | [Vorlesung 4](vorlesung-4.pdf) |
 | 2017-04-25 | Foreign Keys und Datenabfragen | [Vorlesung 5](vorlesung-5.html) | [Vorlesung 5](vorlesung-5.pdf) |
+| 2017-05-02 | Datenabfragen ueber mehrere Tabellen und Normalisierung | [Vorlesung 6](vorlesung-6.html) | [Vorlesung 6](vorlesung-6.pdf) |
  
 ## Laboruebungen
 
