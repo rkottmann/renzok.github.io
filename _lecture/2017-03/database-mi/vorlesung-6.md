@@ -15,7 +15,7 @@ Attribution-NonCommercial 4.0 International License</a>.
 ---
 # Zusammenfassung der vorherigen Vorlesung
 
-* Foreign Keys zur Umsetzung von Benziehungen
+* Foreign Keys zur Umsetzung von Beziehungen
 * Von Anfragen zu SQL-Abfragen
 * Transaktionen
 
@@ -26,10 +26,11 @@ class: middle,centerE
 * [SQL file mit ersten Testdaten](/lecture/2017-03/database-mi/mi-db-vorlesung-6.sql)
 
 ---
-class: middle,centerE
-# Abfragen ueber mehere Tabellen
+class: middle,center
+
+# Abfragen über mehrere Tabellen
 ---
-# Revisited: Anatomy von SELECT
+# Revisited: Anatomie von SELECT
 
 ~~~sql
 SELECT *        -- welche Spalten sollen wie angezeigt werden
@@ -40,10 +41,10 @@ Kann gelesen werden als:
 
      Zeige mir alle Spalten der Tabelle "tabelle" an und davon alle Zeilen.
 --
-Es wird immer eine und nur eine Tabelle durch `SELECT` erzeugt, daher ist das technisch praeziser:
+Es wird immer eine und nur eine Tabelle durch `SELECT` erzeugt, daher ist das technisch präziser:
 
-     Erzeuge und zeig mir eine virtuelle Tabelle, die folgender Anweisung enpricht:
-	 Zeige alle Spalten der Tabelle "tabelle" an und davon alle Zeilen.
+     Erzeuge und zeig mir *eine* virtuelle Tabelle, die folgender Anweisung enpricht:
+     Zeige alle Spalten der Tabelle "tabelle" an und davon alle Zeilen.
 ---
 
 # Beispiel-Tabellen
@@ -214,19 +215,19 @@ In einfachen Worten: Verbindet jede Zeile der TabelleA mit jeder Zeile der Tabel
 # Datenbank: Query Plan
 
 * Jede Abfrage wird vom DBMS ausgewertet
-  * DBMS findet den optimalen Plan zur Ausfuehrung der Abfrage
-  * DBMS findet den besten Algorithmus!
+  * DBMS findet einen optimalen Plan zur Ausführung der Abfrage
+  * DBMS bestimmt einen optimalen Algorithmus!
   
 ---
 
-# Logische Ausfuehrung vs. Aktuelle Ausfuehrung
+# Logische Ausführung vs. Aktuelle Ausführung
 
 * SQL standard legt eine logische Auswertungsreihenfolge fest
 * DBMS kann intern davon abweichen
 
 ---
 class: split-50
-# Logische Ausfuehrungsreihenfolge
+# Logische Ausführungsreihenfolge
 
 .column[
 
@@ -234,7 +235,6 @@ class: split-50
   
   (2) WHERE 
 
-  
   (3) CONNECT BY (Oracle)
 
   (4) GROUP BY
@@ -274,40 +274,44 @@ class: split-50
 
 .column[
 
-  (1) FROM, JOIN, APPLY 
+  (1) [FROM, JOIN](https://www.postgresql.org/docs/9.6/static/queries-table-expressions.html), APPLY 
   
-  (2) WHERE 
-
+  (2) [WHERE](https://www.postgresql.org/docs/9.6/static/queries-table-expressions.html#QUERIES-WHERE) 
   
   (3) CONNECT BY (Oracle)
 
-  (4) GROUP BY
+  (4) [GROUP BY](https://www.postgresql.org/docs/9.6/static/queries-table-expressions.html#QUERIES-GROUP)
 
-  (5) AGGREGATIONS
+  (5) [AGGREGATIONS](https://www.postgresql.org/docs/9.6/static/functions-aggregate.html)
 
-  (6) HAVING
+  (6) [HAVING](https://www.postgresql.org/docs/9.6/static/queries-table-expressions.html#QUERIES-GROUP)
 
-  (7) WINDOW
+  (7) [WINDOW](https://www.postgresql.org/docs/9.6/static/queries-table-expressions.html#QUERIES-WINDOW)
 
 ]
 .column[
 
   (8) MODEL (Oracle)
 
-  (9) SELECT 
+  (9) [SELECT](https://www.postgresql.org/docs/9.6/static/queries-select-lists.html)
 
-  (10) DISTINCT
+  (10) [DISTINCT](https://www.postgresql.org/docs/9.6/static/queries-select-lists.html#QUERIES-DISTINCT)
 
-  (11)UNION, INTERCEPT, EXCEPT
+  (11)[UNION, INTERCEPT, EXCEPT](https://www.postgresql.org/docs/9.6/static/queries-union.html)
 
-  (12) ORDER BY
+  (12) [ORDER BY](https://www.postgresql.org/docs/9.6/static/queries-order.html)
 
-  (13) OFFSET
+  (13) [OFFSET](https://www.postgresql.org/docs/9.6/static/queries-limit.html)
 
-  (14) LIMIT
+  (14) [LIMIT](https://www.postgresql.org/docs/9.6/static/queries-limit.html)
 
-  (15) FOR UPDATE
+  (15) [FOR UPDATE](https://www.postgresql.org/docs/9.6/static/sql-select.html#SQL-FOR-UPDATE-SHARE)
 
+]
+.footnote[
+ [1] [Gesamtüberblick](https://www.postgresql.org/docs/9.6/static/queries.html)
+ 
+ [2] [SELECT Details](https://www.postgresql.org/docs/9.6/static/sql-select.html)
 ]
 
 ---
@@ -346,7 +350,7 @@ class: center,middle
 ---
 # _Funktionale Abhängigkeit_
 
-* Begriff gehoert zur Normalisierung 
+* Begriff gehört zur Normalisierung 
  
 ---
 # Definition: _Funktionale Abhängigkeit_
@@ -422,7 +426,7 @@ mit:
 
 * Eine Relation ist in 2. Normalform (2NF), 
   * wenn sie 1NF erfüllt und jedes Attribut, das nicht zum Primärschlüssel gehört, voll von diesem abhängig ist.
-  * "Alle Attribute, die nicht Teil des Schluessels sind, haengen voll funktional von diesem ab."
+  * "Alle Attribute, die nicht Teil des Schlüssels sind, hängen voll funktional von diesem ab."
 
   Ist der Primärschlüssel einfach, so ist 2NF trivialerweise erfüllt.
 
@@ -462,14 +466,14 @@ Folgendes schematisches Beispiel verdeutlicht einen Verstoss:
  
 * Es gibt keine transitiven funktionalen Abhängigkeiten. 
   Aus S → A darf sich nicht A → T ableiten lassen.
-* Alle funktionalen Abhängigkeiten sind vom Primary Key abhaengig
+* Alle funktionalen Abhängigkeiten sind vom Primary Key abhängig
 
 ---
 
 # Meine Vorgehensweise
 
-* Alles was, gemaess den Anforderungen, eigenstaendig und unabhängig von 
-existiereneden Entitaeten gemanaged werden muss, ist eine neue eigenstaendige Entitaet oder neue Beziehung zwischen Entitaet.
+* Alles was, gemäss den Anforderungen, eigenständig und unabhängig von 
+existiereneden Entitäten gemanaged werden muss, ist eine neue eigenständige Entität oder neue Beziehung zwischen Entität.
 
 
   * Managen heisst: 
@@ -484,7 +488,7 @@ existiereneden Entitaeten gemanaged werden muss, ist eine neue eigenstaendige En
 
 
 * J. Celko's 13 Regeln:
-   * Wicgtigste: If you have to change more than one row to update, insert or delete a simple fact, then the table is not normalized.
+   * Wichtigste: If you have to change more than one row to update, insert or delete a simple fact, then the table is not normalized.
 ---
 
 Mother Celko's Thirteen Normalization Heuristics
