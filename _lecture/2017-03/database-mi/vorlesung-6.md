@@ -373,7 +373,7 @@ Das heißt:
 > X determiniert Y funktional X → Y
 
 ---
-# Beipiele
+# Beispiele
 
 Sei A die Menge aller Attribute der Relation Teilnehmerinnen,
 
@@ -473,7 +473,7 @@ Folgendes schematisches Beispiel verdeutlicht einen Verstoss:
 # Meine Vorgehensweise
 
 * Alles was, gemäss den Anforderungen, eigenständig und unabhängig von 
-existiereneden Entitäten gemanaged werden muss, ist eine neue eigenständige Entität oder neue Beziehung zwischen Entität.
+existierenden Entitäten gemanaged werden muss, ist eine neue eigenständige Entität oder neue Beziehung zwischen Entität.
 
 
   * Managen heisst: 
