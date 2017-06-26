@@ -103,7 +103,7 @@ CREATE TABLE labor_abgabe (
 INSERT INTO teilnehmer 
   (geschlecht,vorname, nachname, matrikel_nr, email, semester) 
 VALUES 
-  ('maennlich','renzo','kottmann',007,'renzo@007.bond', 10),
+  ('maennlich','renzo','kottmann',007,'renzo@007.bond', default),
   ('weiblich','Zoe','Nice',044,'zoe@mi5.bond', 4),
   ('weiblich','Money','Penny',0664,'euro@mi5.bond', 2),
   ('maennlich','peter','lustig',008,'peter@007.bond',4);
@@ -182,7 +182,7 @@ select *
   from Teilnehmer 
  where vorname ~* '^z';
 
--- Summe und Durchschnittssemester der Teilnehmer pro Geschlecht
+
 select geschlecht, sum(semester) as summe, avg(semester) as durchschnitt
   FROM teilnehmer
   GROUP by geschlecht
