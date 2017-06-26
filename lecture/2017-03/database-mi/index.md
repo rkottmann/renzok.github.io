@@ -27,6 +27,11 @@ layout: default
 [Uebung 3](labor-uebung-3)
 
 
+## Quiz
+
+[Quiz-Fragen](db-quiz)
+
+
 ## Literatur
  
 ### Einführende Literatur:
