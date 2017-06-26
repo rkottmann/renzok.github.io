@@ -17,68 +17,68 @@ Attribution-NonCommercial 4.0 International License</a>.
 
 # 1. Was ist eine Datenbank?
 
-https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-1.html#15
+[Loesung](https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-1.html#15)
 
 ---
 
 # 2. Was ist Entity Relationship Modellierung (ERM/ERD)
 
-https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-2#17
+[Loesung](https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-2#17)
 ---
 
 # 3. Was ist SQL und wofuer wird es verwendet?
 
-https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-2#25
+[Loesung](https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-2#25)
 
-https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-2#27
+[Loesung](https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-2#27)
 
 ---
 # 4. Wie legt man mit SQL eine Tabelle an?
 
-## Welche Datentypen gibt es schon in PostgreSQL?
-## Kann man eigene Datentypen definieren?
+## a) Welche Datentypen gibt es schon in PostgreSQL?
+## b) Kann man eigene Datentypen definieren?
 
-https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-3.html#18
+[Loesung](https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-3.html#18)
 
 ---
 
 # 5. Was sind Constraints und welche gibt es in SQL?
 
-https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-3.html#20 
+[Loesung](https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-3.html#20 )
 
 ---
 
 # 6. Wie implementiert man Beziehungen in SQL?
 
-https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-5#4
+[Loesung](https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-5#4)
 
 
 ---
 # 7. Was ist eine Transaktion? Wie in SQL?
 
-https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-5#22
+[Loesung](https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-5#22)
 
 ---
 
 # 8. Wie sieht die Anatomy eines SELECTS aus?
 
-https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-5#17
+[Loesung](https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-5#17)
 
 ---
 
 # 9. Welche JOIN-Moeglichkeiten gibt es?
 
-https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-6#14
+[Loesung](https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-6#14)
 
 ---
 
 # 10. Welche weiteren SELECT-Clauses gibt es?
 
-https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-6#19
+[Loesung](https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-6#19)
 
 ---
 
 # 11. Warum Normalisiert man Datenbanken?
 
-https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-6#22
+[Loesung](https://renzok.github.io/lecture/2017-03/database-mi/vorlesung-6#22)
 
