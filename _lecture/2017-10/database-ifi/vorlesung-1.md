@@ -188,10 +188,10 @@ Zur ersten Erfassung und Verwaltung bietet sich auch ein Tabellenkalkulationspro
 ---
 # Google Spreadsheet
 
-[Google Spreadsheet](https://docs.google.com/spreadsheets/d/1tpMyVaZla6N9n7heww_y1F78a9S0BRw4NwkLmdCIbmA/edit)
+[Google Spreadsheet](https://docs.google.com/spreadsheets/d/1-fYfxK-aszpVEa2_nW0eUcaqjXB7P3tKM5cjQ5C3FsQ/edit)
 
 
-URL: https://docs.google.com/spreadsheets/d/1tpMyVaZla6N9n7heww_y1F78a9S0BRw4NwkLmdCIbmA
+URL: https://docs.google.com/spreadsheets/d/1-fYfxK-aszpVEa2_nW0eUcaqjXB7P3tKM5cjQ5C3FsQ/edit?usp=sharing
 
 ---
 
