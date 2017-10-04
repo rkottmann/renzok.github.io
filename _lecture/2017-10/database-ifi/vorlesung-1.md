@@ -1,6 +1,7 @@
 # Datenbank-Systeme
 # {{ page.title }} 
-## Internationaler Frauenstudiengang Informatik WiSe 2017/18
+## Internationaler Frauenstudiengang Informatik 
+## WiSe 2017/18
  
 Renzo Kottmann 
 
@@ -151,11 +152,11 @@ class: center, middle
 ---
 # Nutzen von Datenbanken
 
-* Häufigste Anwendung ist Beantwortung von Anfragen wie z.B.
+* Häufigste Anwendung ist Beantwortung von Anfragen wie z.B.:
 
-	* welche Bücher von 'Douglas Adams' sind in dieser Bibliothek
-    erhältlich
-	* in welchem Regal befindet sich "Per Anhalter durch die Galaxis"?
+	* Welche Bücher von 'Douglas Adams' sind in dieser Bibliothek
+    erhältlich?
+	* In welchem Regal befindet sich "Per Anhalter durch die Galaxis"?
 
 ---
 # Datenbank Entwicklung
