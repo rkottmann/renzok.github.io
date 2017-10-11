@@ -17,11 +17,11 @@ Attribution-NonCommercial 4.0 International License</a>.
 
 ---
 
-# Einührung
+# Einführung
 
 * Laborordnung
 * Kleingruppenfindung 2-3 Personen
-* Jede Aufgabe ~~muss~~ kann vom Dozent abgenommen werden
+* Jede Aufgabe ~~muss~~ kann vom Dozenten abgenommen werden
   * Nach Abschluss der Aufgabe,
   * am Ende des Labortermins oder
   * zu Beginn des nächsten Labortermins
@@ -48,22 +48,22 @@ Attribution-NonCommercial 4.0 International License</a>.
 # Aufgabe 2: Erfassung der Daten in CSV
 
 * Erfasst ein paar Beipieldaten in CSV
-  * Die Daten muesen nicht real, sollten aber realistisch sein
-  * Benutzt dazu ein Tabellenkalkulationsprogramm wie Goggle Spreadsheet, Excel, LibreOffice Calc oder aehnliche
+  * Die Daten muessen nicht real, sollten aber realistisch sein
+  * Benutzt dazu ein Tabellenkalkulationsprogramm wie Google Spreadsheet, Excel, LibreOffice Calc oder aehnliche
 
 ---
 # Aufgabe 3: Erfassung der Daten in XML
 
 * Recherchiert: Was ist XML?
 * Entwickelt ein einfaches XML fuer Euer ad-hoc Projekt
-  * Mit aehnlichen oder gleichen Beipieldaten wie bei Aufgabe 2
+  * Mit aehnlichen oder gleichen Beispieldaten wie bei Aufgabe 2
   
 ---
 # Aufgabe 4: Erfassung der Daten in JSON
 
 * Recherchiert: Was ist JSON?
 * Entwickelt ein einfaches JSON fuer Euer ad-hoc Projekt
-  * Mit aehnlichen oder gleichen Beipieldaten wie bei Aufgabe 2
+  * Mit aehnlichen oder gleichen Beispieldaten wie bei Aufgabe 2
   
 ---
 # Aufgabe 5: PostgreSQL Installation
