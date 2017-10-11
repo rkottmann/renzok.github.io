@@ -12,7 +12,7 @@ layout: default
 | Datum | Titel | Folien (HTML) | Folien (PDF) |
 |:------|:------|---------------|--------------| 
 | 2017-10-04 | Einfuehrung in Datenbanken: Bedeutung und Definition von Daten | [Vorlesung 1](vorlesung-1.html) | [Vorlesung 1](vorlesung-1.pdf) |
-| 2017-10-11 | Von unstrukturierten zu strukturierten Daten | [Vorlesung 2](vorlesung-2.html) | [Vorlesung 2](vorlesung-2.pdf) |
+| 2017-10-11 | Von unstrukturierten zu strukturierten Daten | [Vorlesung 2](vorlesung-2.html) | -- |
 | 2017-10-18 | faellt aus | -- | -- |
  
 ## Laboruebungen
