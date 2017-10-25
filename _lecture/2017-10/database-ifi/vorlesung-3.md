@@ -234,7 +234,7 @@ Die Auswahl eines oder meherer Attribute als Schlüssel legt fest, dass
 es keine zwei Entitäten eines Entitätstyp geben kann die identische
 Attributwerte haben.
 
-* Wichtige Eigenchaften:
+* Wichtige Eigenschaften:
 
   * Eindeutigkeit
   * Zuteilbarkeit
@@ -450,7 +450,7 @@ class: split-50
 
 .column[
 ```sql
-CREATE TABLE teilnehmer (
+CREATE TABLE teilnehmerin (
 --Spalten Name Datentyp,
   vorname text,
   nachname text,
