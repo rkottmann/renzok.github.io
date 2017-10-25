@@ -25,10 +25,13 @@ Attribution-NonCommercial 4.0 International License</a>.
 # Wiederholung
 
 ## Vorlesung 1
+
 * Definition von Daten
 * Welche [Kategorien von Daten gibt es?](/lecture/2017-10/database-ifi/vorlesung-1.html#13)
 * [Was ist eine Datenbank](/lecture/2017-10/database-ifi/vorlesung-1.html#15) im Allgemeinen?
+
 ## Vorlesung 2
+
 * Mini-ad-hoc-Projekt mit semistrukturierten Daten in [CSV](/lecture/2017-10/database-ifi/vorlesung-2.html#14), [XML](/lecture/2017-10/database-ifi/vorlesung-2.html#17) und [JSON](https://renzok.github.io/lecture/2017-10/database-ifi/vorlesung-2.html#18)
 * Vor- und Nachteile von semistrukturierten Daten
 
@@ -50,15 +53,12 @@ class: middle, center
 # Was sind die Nachteile von diesem System und dieser Vorgehensweise?  
 
 ---
-class: middle
 # Was wäre besser?
-
---
 
 1. Hohe Datenintegrität bzw. Konsistenz
 2. Mehrere Nutzer können gleichzeitg an denselben Daten arbeiten
 3. Klare Trennung von Struktur und Inhalt bzw. Daten
-3. Effiziente Suche in grossen Daten
+4. Effiziente Suche in grossen Daten
 
 ---
 
@@ -84,6 +84,27 @@ class: middle
     * Ermöglicht Erstellung und Pflege vieler Datenbanken
 
     * Stellt Werkzeuge für _alle_ Aspekte der Datenverwaltung bereit
+
+---
+class: split-50
+# Datenbanksystem
+
+.column[
+* Datenbank (DB)
+
+  Schema + Daten
+
+* Datenbankmanagementsystem (DBMS)
+
+  Softwaresystem zur Verwaltung
+
+* Datenbanksystem
+
+  DBMS + DB(s)
+]
+.column[
+![test](/img/datenbanksystem-concept.png)
+]
 
 ---
 
@@ -259,7 +280,64 @@ Es gibt verschiedene Formen ERM zu notieren (textuell und/oder graphisch):
 </table>
 ---
 class: middle, center
-# Von ERM zur ersten Implementation
+# Von ERM zur ersten Implementation bzw. erstem Model
+
+---
+
+# Datenmodell
+
+System von Konzepten zur abstrakten Darstellung eines Ausschnitts der
+realen Welt mittels Daten
+
+* besteht aus 
+  * generischer Datenstruktur
+  * Operatoren
+  * Integritätsbedingungen
+
+---
+
+# Relationales Datenbankmodell 
+
+
+## Generische Datenstruktur
+
+* Relationen mit eindeutigen Namen
+
+  * jede Relation ist eine Menge von Tupeln (Datensätzen) gleichen
+  Typs
+
+  * Die Struktur ist insofern generisch, als die Relationen und ihre
+  Attribute (Spalten) beliebig gewählt werden können bzw. beim
+  Einrichten der Datenbank angegeben werden müssen.
+
+---
+
+## Operatoren
+
+* relationale Algebra
+
+* Daten
+
+  * eintragen
+
+  * ändern
+
+  * löschen
+
+  * abfragen
+
+  * ableiten
+
+---
+
+## Integritätsbedingungen
+
+* Bestimmung von ein-eindeutigen Tupeln
+
+* Einschränkungen vom Wertbereich bestimmter Datentypen
+
+https://de.wikipedia.org/wiki/Datenbankmodell
+
 
 ---
 # Structured Query Language (SQL)
