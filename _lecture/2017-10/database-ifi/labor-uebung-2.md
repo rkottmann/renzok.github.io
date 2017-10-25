@@ -58,23 +58,23 @@ Attribution-NonCommercial 4.0 International License</a>.
 
 ---
 
-Aufgabe 8: PSQL vs. PgAdmin
+# Aufgabe 8: PSQL vs. PgAdmin
 
 * Was ist der Unterschied zwischen PSQL vs. PgAdmin
 
 ---
-Aufgabe 9: Client-Server Architektur
+# Aufgabe 9: Client-Server Architektur
 
 * Inwiefern enspricht das PostgreSQL Datenbank-System einer Client-Server Architektur
 
 ---
 
-Aufgabe 10: Anlegen einer Datenbank-Server
+# Aufgabe 10: Anlegen einer Datenbank-Server
 
 * Lege mit SQL eine eigene Datenabnk an
 
 ---
-Aufgabe 11: Anlegen einer Tabelle
+# Aufgabe 11: Anlegen einer Tabelle
 
 * Lege mit SQL eine Tabelle gemaess Deines kleinen ad-hoc Projektes aus [Labor-Uebung 1](/lecture/2017-10/database-ifi/labor-uebung-2.html) an
 
