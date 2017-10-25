@@ -69,7 +69,7 @@ Attribution-NonCommercial 4.0 International License</a>.
 
 ---
 
-# Aufgabe 10: Anlegen einer Datenbank-Server
+# Aufgabe 10: Anlegen einer Datenbank
 
 * Lege mit SQL eine eigene Datenabnk an
 
