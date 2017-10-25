@@ -14,6 +14,7 @@ layout: default
 | 2017-10-04 | Einfuehrung in Datenbanken: Bedeutung und Definition von Daten | [Vorlesung 1](vorlesung-1.html) | [Vorlesung 1](vorlesung-1.pdf) |
 | 2017-10-11 | Von unstrukturierten zu strukturierten Daten | [Vorlesung 2](vorlesung-2.html) | -- |
 | 2017-10-18 | faellt aus | -- | -- |
+| 2017-10-25 | Entity Relationship Modellierung (ERM) & Structured Query Language (SQL) | [Vorlesung 3](vorlesung-3.html)| -- |
  
 ## Laboruebungen
 
