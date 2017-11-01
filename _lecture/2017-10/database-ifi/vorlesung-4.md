@@ -32,8 +32,6 @@ Attribution-NonCommercial 4.0 International License</a>.
 
 ---
 
----
-
 # Relationales Datenbankmodell 
 
 
@@ -218,9 +216,6 @@ CREATE table teilnehmerin (
 * CHECK Constraints
 * Unique Constraint
 
----
-
-    
 ---
 
 class: split-30
