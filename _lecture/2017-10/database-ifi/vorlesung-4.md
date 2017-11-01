@@ -120,15 +120,15 @@ class: split-60
 
 .column-right[ 
 
-* DDL = Data Defintion Language:
+* DDL = Data Definition Language:
 
   .text-xs[Definition des Datenbankschemas]
-* DML = Data Manipluation Language:
+* DML = Data Manipulation Language:
   
   .text-xs[Ändern, Einfügen, Löschen und lesender Zugriff]
 * DRL = Data Retrievel Language
   
-  .text-xs[Nicht standadisierte Bezeichnung des `SELECT` aus DML]
+  .text-xs[Nicht standardisierte Bezeichnung des `SELECT` aus DML]
 * DCL = Data Control Language:
 
   .text-xs[Rechteverwaltung und Transaktionskontrolle]
