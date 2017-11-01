@@ -71,10 +71,10 @@ Attribution-NonCommercial 4.0 International License</a>.
 
 # Aufgabe 10: Anlegen einer Datenbank
 
-* Lege mit SQL eine eigene Datenabnk an
+* Lege mit SQL eine eigene Datenbank an
 
 ---
 # Aufgabe 11: Anlegen einer Tabelle
 
-* Lege mit SQL eine Tabelle gemaess Deines kleinen ad-hoc Projektes aus [Labor-Uebung 1](/lecture/2017-10/database-ifi/labor-uebung-2.html) an
+* Lege mit SQL eine Tabelle gemaess Deines kleinen ad-hoc Projektes aus [Labor-Uebung 1](/lecture/2017-10/database-ifi/labor-uebung-1.html) an
 

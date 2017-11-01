@@ -401,7 +401,7 @@ class: split-50
 
 .column[
 ```sql
-CREATE TABLE teilnehmer (
+CREATE TABLE teilnehmerin (
 --Spalten Name Datentyp,
   vorname text,
   nachname text,
@@ -427,7 +427,7 @@ class: split-50
 
 .column[
 ```sql
-CREATE TABLE teilnehmer (
+CREATE TABLE teilnehmerin (
 --Spalten Name Datentyp,
   vorname text,
   nachname text,
@@ -475,7 +475,7 @@ class: split-30
 .column[
 ```sql
 
-INSERT INTO teilnehmer
+INSERT INTO teilnehmerin
   (vorname, nachname, matrikel_nr, email, semester)
 VALUES
   ('renzo','kottmann',007,'renzo@007.bond', 0);
