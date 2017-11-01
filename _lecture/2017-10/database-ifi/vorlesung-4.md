@@ -342,14 +342,14 @@ implementiert hier die Anforderung:
 
 
 > `
-INSERT INTO teilnehmer
+INSERT INTO teilnehmerin
   (vorname, nachname, matrikel_nr, email)
 VALUES
   ('renzo','kottmann',007,'renzo@007.bond');` 
 
   führt zu einem Eintrag mit:
 
-  <table style="border:1px solid black">
+  <table style="border:1px solid blue">
     <thead>
       <tr>
         <th>vorname</th>
@@ -364,7 +364,7 @@ VALUES
          <td>kottmann</td>
          <td>7</td>
          <td>renzo@007.bond</td>
-         <td>4</td>
+         <td>3</td>
        </tr>
    </table>
 ---
