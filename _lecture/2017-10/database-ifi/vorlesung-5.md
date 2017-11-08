@@ -53,6 +53,7 @@ Attribution-NonCommercial 4.0 International License</a>.
    z.B. `Geschlecht = {maennlich,weiblich}`
 1. **Code-List**:
    Liste von Werten, die in Zukunft häufig und zu jeder Zeit geändert wird
+   * Und haeufig der eigentliche Wert codifiziert wird
 ---
 
 # Implementierungsvarianten
@@ -133,7 +134,8 @@ class: split-50
 .column[
 * Kann man erst Tabelle `teilnehmerin` und dann `geschlecht` anlegen?
 * Was passiert, wenn in `teilnehmerin` geschlecht null ist?
-* Was passiert, wenn in `geschlecht` die Zeile `maennlich` geloescht wird?   
+* Was passiert, wenn in `geschlecht` die Zeile `maennlich` geloescht wird?
+* Muss `name` in Tabelle geschlecht Ein-Eindeutig sein?   
 ]
 
 .column[
