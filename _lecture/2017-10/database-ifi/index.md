@@ -16,6 +16,18 @@ layout: default
 | 2017-10-18 | faellt aus | -- | -- |
 | 2017-10-25 | Entity Relationship Modellierung (ERM) & Structured Query Language (SQL) | [Vorlesung 3](vorlesung-3.html)| [Vorlesung 3](vorlesung-3.pdf) |
 | 2017-11-01 | Datenbank Schema Erstellung mit Structured Query Language (SQL) | [Vorlesung 4](vorlesung-4.html)| -- |
+| 2017-11-08 | Technische und semantische Beziehungen modellieren und implementieren | [Vorlesung 5](vorlesung-5.html)| -- |
+| 2017-11-15 | tba | -- | -- |
+| 2017-11-22 | tba | -- | -- |
+| 2017-11-29 | tba | -- | -- |
+| 2017-12-06 | tba | -- | -- |
+| 2017-12-13 | tba | -- | -- |
+| 2017-12-20 | tba | -- | -- |
+| 2018-01-10 | tba | -- | -- |
+| 2018-01-17 | tba | -- | -- |
+| 2018-01-24 | tba | -- | -- |
+| 2018-01-31 | tba | -- | -- | 
+ 
  
 ## Laboruebungen
 

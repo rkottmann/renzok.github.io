@@ -1,0 +1,11 @@
+---
+layout: remark
+lecture: "Internationaler Frauenstudiengang Informatik"
+title: "Technische und semantische Beziehungen modellieren und implementieren"
+---
+
+
+{% assign file_name = page.path | split:"/" | last | split:"." | first %}
+
+{% include_relative {{ file_name }}.md %}
+
