@@ -134,8 +134,9 @@ class: split-50
 .column[
 * Kann man erst Tabelle `teilnehmerin` und dann `geschlecht` anlegen?
 * Was passiert, wenn in `teilnehmerin` geschlecht null ist?
+* Muss `name` in Tabelle `geschlecht` Ein-Eindeutig sein?
 * Was passiert, wenn in `geschlecht` die Zeile `maennlich` geloescht wird?
-* Muss `name` in Tabelle geschlecht Ein-Eindeutig sein?   
+   
 ]
 
 .column[

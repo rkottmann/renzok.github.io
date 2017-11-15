@@ -143,7 +143,7 @@ Datenverwaltungssystem: Relationales Datenbankmanagemensystem
 In der Phase der Systemanalyse werden ausgehend von der
 Problemstellung die Anforderungen an die Lösung formuliert. Diese
 sollten möglichst vollständig und konsistent sein, d.h. alle
-(vollständigen) Anforderungen sollten widerspruchsfrei (konsistent)
+(vollständig) Anforderungen sollten widerspruchsfrei (konsistent)
 formuliert werden.
 
 Ein guter Einstieg in die Anwendungsdefinition ist, sich zu
