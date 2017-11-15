@@ -142,7 +142,7 @@ In der Projektarbeit wird einzeln oder in 2er-Gruppen ein kleineres Datenbankpro
   * Erstellen eines Dokumentes (PDF-Format), welches Design und Implementation deutlich dokumentiert.
 ---
 
-# Leistungsnachweis: Präsentation
+# Präsentation
 
 Darstellung der Arbeitsergebnisse vor dem gesamten Kurs in Form eines Vortrages.
 
@@ -154,7 +154,7 @@ Darstellung der Arbeitsergebnisse vor dem gesamten Kurs in Form eines Vortrages.
 
 Der Themenbereich kann selbst gewählt werden muss jedoch:
  * in allen Gruppen unterschiedlich sein
- * ein Teil des Themas muss Rechnugnen beinhalten
+ * ein Teil des Themas muss Rechnungen beinhalten
 
 ---
 class: middle, center
