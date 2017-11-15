@@ -27,6 +27,11 @@ layout: default
 | 2018-01-17 | tba | -- | -- |
 | 2018-01-24 | tba | -- | -- |
 | 2018-01-31 | tba | -- | -- | 
+
+## Projekt
+
+* Informationen zu Anforderungen des Projekts sind in [Vorlesung 6](vorlesung-6.html)
+* [Music Collection Beispiel Projekt](/musiccollection-db)
  
  
 ## Laborübungen
@@ -38,6 +43,8 @@ layout: default
 [Übung 3](labor-uebung-3) vom 2017-11-01
 
 [Übung 4](labor-uebung-4) vom 2017-11-15
+
+
 
 
 ## Literatur
