@@ -73,7 +73,7 @@ formuliert werden.
 * Jegliche Tools kann benutzt werden
 * Jede Notationsart kann gewählt werden
   * Absolut **wichtig** ist die Legende
-* Persönlich: Bevorzuge physisches Schema
+* Persönlich: Bevorzuge logisches Schema
 
 ---
 # Implementierung
