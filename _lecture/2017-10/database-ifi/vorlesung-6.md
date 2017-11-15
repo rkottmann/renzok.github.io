@@ -29,7 +29,7 @@ class: middle, center
 
 # Schritte im agilen Datenbank Projekt
 
-(Folie von [Vorlesung 3](vorlesung-3#11)
+(Folie von [Vorlesung 3](vorlesung-3#11))
 
 1. Anwendungsdefinition
   * Genaue textuelle Beschreibung des Problems in der realen Welt.
@@ -73,7 +73,7 @@ formuliert werden.
 * Jegliche Tools kann benutzt werden
 * Jede Notationsart kann gewählt werden
   * Absolut **wichtig** ist die Legende
-* Peroenlich: Bevorzuge physisches Schema
+* Persönlich: Bevorzuge physisches Schema
 
 ---
 # Implementierung
@@ -84,7 +84,7 @@ formuliert werden.
   * Skript(e) zum laden/einfügen der Daten 
   * Skript(e) für SQL´s `SELECT`s
 * Jeder Texteditor kann benutzt werden
-  * Am praktischen sind jedoch PSQL, PgAdmin III oder IV
+  * Am praktischsten sind jedoch Tools wie PSQL, PgAdmin III oder IV
 ---
 # Dokumentation
 
@@ -101,7 +101,7 @@ In der Projektarbeit wird einzeln oder in 2er-Gruppen ein kleineres Datenbankpro
 # Leistungsnachweis: Design
 
 * Anwendungsdefinition: Spezifikation der Aufgabenstellung
-   * Muss alles relevanten Informationen enthalten, um das ERD und Implementierung verstehen zu koennen
+   * Muss alles relevanten Informationen enthalten, um das ERD und Implementierung verstehen zu können
    * Größenordnung: Mindestens 1 Seite
 * ERD: Konzeptionelles und/oder logisches Datenbankschema
    * Bild mit Legende
