@@ -31,7 +31,7 @@ layout: default
 ## Projekt
 
 * Informationen zu Anforderungen des Projekts sind in [Vorlesung 6](vorlesung-6.html)
-* [Music Collection Beispiel Projekt](/musiccollection-db)
+* [Music Collection Beispiel Projekt](musiccollection-db)
  
  
 ## Laborübungen
