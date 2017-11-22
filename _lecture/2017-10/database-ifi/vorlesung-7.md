@@ -92,11 +92,28 @@ class: middle,centerE
 * [SQL file mit ersten Testdaten](/lecture/2017-03/database-mi/mi-db-vorlesung-6.sql)
 
 ---
-
+class: middle,centerE
 
 # Sammeln von Anfragen
 
+---
+### **ANFRAGE:**
+# Gib mir alle Daten aller Teilnehmer
 
+### **ABFRAGE:**
+~~~sql
+select * 
+  from Teilnehmer;
+~~~
+---
+# Welche Teilnehmer sind im hoeheren Semester als 3
+
+
+~~~sql
+select * 
+  from Teilnehmer 
+ where semester > 3 ;
+~~~
 ---
 # Datenbank: Query Plan
 
