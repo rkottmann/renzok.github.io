@@ -66,7 +66,7 @@ SELECT *        -- welche Spalten sollen wie angezeigt werden
 
 Es wird immer eine und nur eine Tabelle durch `SELECT` erzeugt, daher ist das technisch präziser:
 
-     Erzeuge und zeig mir *eine* virtuelle Tabelle, die folgender Anweisung enpricht:
+     Erzeuge und zeig mir *eine* virtuelle Tabelle, die folgender Anweisung entspricht:
      Hole aus der Tabelle "tabelle" alle Zeilen die der Bedingung 'true' entsprechen
 	 und zeige davon alle Spalten an.
 ---
