@@ -18,7 +18,7 @@ layout: default
 | 2017-11-01 | Datenbank Schema Erstellung mit Structured Query Language (SQL) | [Vorlesung 4](vorlesung-4.html)| [Vorlesung 4](vorlesung-4.pdf) |
 | 2017-11-08 | Technische und semantische Beziehungen modellieren und implementieren | [Vorlesung 5](vorlesung-5.html)| [Vorlesung 5](vorlesung-5.pdf) |
 | 2017-11-15 | Datenbank Projekt: vom Design zur Implementierung und Dokumentation | [Vorlesung 6](vorlesung-6.html) | -- |
-| 2017-11-22 | tba | -- | -- |
+| 2017-11-22 | Von Anfragen zu Abfragen - mit nur einem SQL Befehl | [Vorlesung 7](vorlesung-7.html) | -- |
 | 2017-11-29 | tba | -- | -- |
 | 2017-12-06 | tba | -- | -- |
 | 2017-12-13 | tba | -- | -- |
@@ -31,7 +31,7 @@ layout: default
 ## Projekt
 
 * Informationen zu Anforderungen des Projekts sind in [Vorlesung 6](vorlesung-6.html)
-* [Music Collection Beispiel Projekt](musiccollection-db)
+* [Music Collection Management Beispiel Projekt](mcm-db)
  
  
 ## Laborübungen
@@ -42,7 +42,7 @@ layout: default
 
 [Übung 3](labor-uebung-3) vom 2017-11-01
 
-[Übung 4](labor-uebung-4) vom 2017-11-15
+[Übung 4](labor-uebung-4) vom 2017-11-15 weitere Iteration am 2017-11-22
 
 
 
