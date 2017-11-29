@@ -18,7 +18,7 @@ layout: default
 | 2017-11-01 | Datenbank Schema Erstellung mit Structured Query Language (SQL) | [Vorlesung 4](vorlesung-4.html)| [Vorlesung 4](vorlesung-4.pdf) |
 | 2017-11-08 | Technische und semantische Beziehungen modellieren und implementieren | [Vorlesung 5](vorlesung-5.html)| [Vorlesung 5](vorlesung-5.pdf) |
 | 2017-11-15 | Datenbank Projekt: vom Design zur Implementierung und Dokumentation | [Vorlesung 6](vorlesung-6.html) | [Vorlesung 6](vorlesung-6.pdf)  |
-| 2017-11-22 | Von Anfragen zu Abfragen - mit nur einem SQL Befehl | [Vorlesung 7](vorlesung-7.html) | -- |
+| 2017-11-22 | Von Anfragen zu Abfragen - mit nur einem SQL Befehl | [Vorlesung 7](vorlesung-7.html) | [Vorlesung 7](vorlesung-7.pdf) |
 | 2017-11-29 | Java Database Connectivity (JDBC) | [Vorlesung 8](https://paper.dropbox.com/doc/Die-Java-Database-Connectivity-JDBC-Programmier-Schnittstelle-3v81ezixQpqcyWnno1sLH?_tk=share_copylink) | nein |
 | 2017-12-06 | tba | -- | -- |
 | 2017-12-13 | tba | -- | -- |
