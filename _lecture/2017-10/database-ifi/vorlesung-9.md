@@ -18,7 +18,7 @@ Attribution-NonCommercial 4.0 International License</a>.
 ## [Abfragen auf einer Tabelle](vorlesung-7.html#20)
 
 ---
-
+# Und nun zu Abfragen mit `JOINS` :)
 ---
 
 # Beispiel-Tabellen
@@ -185,9 +185,6 @@ In einfachen Worten: Verbindet jede Zeile der TabelleA mit jeder Zeile der Tabel
 * [Original Artikel mit Venn-Overview](http://www.codeproject.com/Articles/33052/Visual-Representation-of-SQL-Joins)
 * [Diskussion und alternative Darstellung](http://stackoverflow.com/questions/13997365/sql-joins-as-venn-diagram)
 * [Kategorisierung nach JOIN-Typen](http://www.way2tutorial.com/sql/sql_join_types_visual_venn_diagram.php)
----
-# laboruebung
-
 ---
 class: middle, center
 
