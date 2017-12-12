@@ -13,15 +13,15 @@ layout: default
 |:------|:------|---------------|--------------| 
 | 2017-10-04 | Einführung in Datenbanken: Bedeutung und Definition von Daten | [Vorlesung 1](vorlesung-1.html) | [Vorlesung 1](vorlesung-1.pdf) |
 | 2017-10-11 | Von unstrukturierten zu strukturierten Daten | [Vorlesung 2](vorlesung-2.html) | [Vorlesung 2](vorlesung-2.pdf) |
-| 2017-10-18 | faellt aus | -- | -- |
+| 2017-10-18 | fällt aus | -- | -- |
 | 2017-10-25 | Entity Relationship Modellierung (ERM) & Structured Query Language (SQL) | [Vorlesung 3](vorlesung-3.html)| [Vorlesung 3](vorlesung-3.pdf) |
 | 2017-11-01 | Datenbank Schema Erstellung mit Structured Query Language (SQL) | [Vorlesung 4](vorlesung-4.html)| [Vorlesung 4](vorlesung-4.pdf) |
 | 2017-11-08 | Technische und semantische Beziehungen modellieren und implementieren | [Vorlesung 5](vorlesung-5.html)| [Vorlesung 5](vorlesung-5.pdf) |
 | 2017-11-15 | Datenbank Projekt: vom Design zur Implementierung und Dokumentation | [Vorlesung 6](vorlesung-6.html) | [Vorlesung 6](vorlesung-6.pdf)  |
 | 2017-11-22 | Von Anfragen zu Abfragen - mit nur einem SQL Befehl | [Vorlesung 7](vorlesung-7.html) | [Vorlesung 7](vorlesung-7.pdf) |
 | 2017-11-29 | Java Database Connectivity (JDBC) | [Vorlesung 8](https://paper.dropbox.com/doc/Die-Java-Database-Connectivity-JDBC-Programmier-Schnittstelle-3v81ezixQpqcyWnno1sLH?_tk=share_copylink) | nein |
-| 2017-12-06 | tba | -- | -- |
-| 2017-12-13 | tba | -- | -- |
+| 2017-12-06 | fällt aus | -- | -- |
+| 2017-12-13 | Datenabfragen über mehrere Tabellen | [Vorlesung 9](vorlesung-9.html) | [Vorlesung 9](vorlesung-9.pdf) |
 | 2017-12-20 | tba | -- | -- |
 | 2018-01-10 | tba | -- | -- |
 | 2018-01-17 | tba | -- | -- |
@@ -44,6 +44,7 @@ layout: default
 
 [Übung 4](labor-uebung-4) vom 2017-11-15 weitere Iteration am 2017-11-22
 
+[Übung 5](labor-uebung-5) weitere Iteration mit Erweiterung um Abfragen mit `JOINs`
 
 
 
