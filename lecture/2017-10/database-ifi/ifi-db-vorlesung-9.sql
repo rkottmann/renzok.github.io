@@ -72,7 +72,7 @@ CREATE TABLE teilnehmer (
     default 'nan'
     NOT NULL,
   projekt text
-    REFERENCES projekt_gruppe,
+    REFERENCES projekt_gruppe(titel),
   labor text
     --NOT NULL
     REFERENCES labor_gruppe(code),
@@ -103,11 +103,15 @@ CREATE TABLE labor_abgabe (
 INSERT INTO teilnehmer 
   (geschlecht,vorname, nachname, matrikel_nr, email, semester) 
 VALUES 
-  ('maennlich','renzo','kottmann',007,'renzo@007.bond', default),
+  
   ('weiblich','Zoe','Nice',044,'zoe@mi5.bond', 4),
   ('weiblich','Money','Penny',0664,'euro@mi5.bond', 2),
   ('maennlich','peter','lustig',008,'peter@007.bond',4);
 
+INSERT INTO teilnehmer 
+  (geschlecht,vorname, nachname, matrikel_nr, email, semester,labor) 
+VALUES 
+  ('maennlich','renzo','kottmann',007,'renzo@007.bond', default,'y' );
 
 INSERT INTO labor_uebung
   (titel,gestellt)
@@ -185,9 +189,16 @@ select *
 
 select geschlecht, sum(semester) as summe, avg(semester) as durchschnitt
   FROM teilnehmer
-  GROUP by geschlecht
+  GROUP by geschlecht;
 
-
+select p.thema, l.anfangszeit, t.nachname
+  FROM  teilnehmer as t
+       left JOIN
+       projekt_gruppe as p ON (t.projekt = p.titel)
+       left JOIN
+       labor_gruppe as l on (t.labor = l.code)
+ wHERE t.nachname = 'kottmann';
+      
 
  
  
