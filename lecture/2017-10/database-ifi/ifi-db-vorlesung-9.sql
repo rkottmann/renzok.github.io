@@ -191,6 +191,7 @@ select geschlecht, sum(semester) as summe, avg(semester) as durchschnitt
   FROM teilnehmer
   GROUP by geschlecht;
 
+ -- Welche labor gruppen anfangszeit und welches Gruppes projekt thema hat kottmann
 select p.thema, l.anfangszeit, t.nachname
   FROM  teilnehmer as t
        left JOIN
