@@ -22,7 +22,7 @@ layout: default
 | 2017-11-29 | Java Database Connectivity (JDBC) | [Vorlesung 8](https://paper.dropbox.com/doc/Die-Java-Database-Connectivity-JDBC-Programmier-Schnittstelle-3v81ezixQpqcyWnno1sLH?_tk=share_copylink) | nein |
 | 2017-12-06 | fällt aus | -- | -- |
 | 2017-12-13 | Datenabfragen über mehrere Tabellen | [Vorlesung 9](vorlesung-9.html) | [Vorlesung 9](vorlesung-9.pdf) |
-| 2017-12-20 | tba | -- | -- |
+| 2017-12-20 | Laborübungstag: Arbeit am Projekt | -- | -- |
 | 2018-01-10 | tba | -- | -- |
 | 2018-01-17 | tba | -- | -- |
 | 2018-01-24 | tba | -- | -- |
