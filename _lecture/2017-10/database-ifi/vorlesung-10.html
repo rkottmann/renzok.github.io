@@ -1,0 +1,11 @@
+---
+layout: remark
+lecture: "Internationaler Frauenstudiengang Informatik"
+title: "Transaktionen und Normalisierung"
+---
+
+
+{% assign file_name = page.path | split:"/" | last | split:"." | first %}
+
+{% include_relative {{ file_name }}.md %}
+

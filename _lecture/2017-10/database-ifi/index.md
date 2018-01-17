@@ -23,10 +23,10 @@ layout: default
 | 2017-12-06 | fällt aus | -- | -- |
 | 2017-12-13 | Datenabfragen über mehrere Tabellen | [Vorlesung 9](vorlesung-9.html) | [Vorlesung 9](vorlesung-9.pdf) |
 | 2017-12-20 | Laborübungstag: Arbeit am Projekt | -- | -- |
-| 2018-01-10 | Lesen und verstehehn von [SQL code des Music Collection Projekts](./mcm-db/mcm-db.sql)  | -- | -- |
-| 2018-01-17 | tba | -- | -- |
+| 2018-01-10 | Lesen und verstehn von [SQL code des Music Collection Projekts](./mcm-db/mcm-db.sql)  | -- | -- |
+| 2018-01-17 | Transaktionen und Normalisierung | [Vorlesung 10](vorlesung-10.html) | -- |
 | 2018-01-24 | tba | -- | -- |
-| 2018-01-31 | tba | -- | -- | 
+| 2018-01-31 | Ab 10 Uhr: Projektvorstellungen | -- | -- | 
 
 ## Projekt
 
@@ -82,6 +82,6 @@ layout: default
 
 ### Ausgewählte Online Resources
 
-[1] [“Martin fowler on databases.”](http://martinfowler.com/bliki/DatabaseThaw.html) [Accessed: 2016-10-26].
+[1] [“Martin Fowler on databases.”](http://martinfowler.com/bliki/DatabaseThaw.html) [Accessed: 2016-10-26].
 
 [2] [“Comparison of different SQL implementations.”](http://troels.arvin.dk/db/rdbms/) Letzte Änderung in 2014 [Accessed: 2016-10-26].
