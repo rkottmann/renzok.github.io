@@ -2,14 +2,16 @@
  * Implementierung des Projekts: "Toller Name"
  * Autor: Renzo Kottmann
  */
- -- 1. Loeschen evtl. schon bestehender Tabellen
-
+ 
 drop FUNCTION if exists i_artist(
   text, 
   year, 
   text, 
   text
 );
+
+
+-- 1. Loeschen evtl. schon bestehender Tabellen
 
 DROP TABLE IF EXISTS 
  master_release,
@@ -22,7 +24,8 @@ DROP TABLE IF EXISTS
  performer,
  invoice_line,
  invoice,
- customer;
+ customer
+ ;
 
 drop domain IF EXISTS
   canonical,
@@ -36,8 +39,10 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
  
  -- 3. Anlegen von Domainen und anderen wichtigen nicht Tabellen Datenbank-Objekten
 
--- erlaube kein leeren Zeichen am Anfang und Ende
--- muss mindestens ein  Zeichen haben
+-- erlaube keine Leerzeichen am Anfang und Ende
+-- muss mindestens ein Leerzeichen haben
+
+/* ACHTUNG: rege falsch, es laesst Leerzeichen am zu */
 create domain canonical as text 
   check (value ~ '^[^\s]+.+[^\s]*$')
 ;
@@ -68,6 +73,7 @@ CREATE Table performer (
  name canonical not null ,
  since_yr year NOT NULL DEFAULT 0,
  -- combination of name and year as 'natural key'
+ rating integer,
  UNIQUE (name,since_yr)
 );
 
@@ -236,11 +242,11 @@ insert into performer(name, since_yr)
   ON CONFLICT (name,since_yr) DO update set name = excluded.name
   returning *
 ;
-
-insert into performer(name, since_yr)
+-- keine ahnung ob David schon in DB ist, aber in jedem Fall neues rating einfuegen oder updaten
+insert into performer(name, since_yr, rating)
   values
-    ('David Bowie', 1974)  
-  ON CONFLICT (name,since_yr) DO update set name = excluded.name
+    ('David Bowie', 1974,5)
+  ON CONFLICT (name,since_yr) DO update set rating = excluded.rating
   returning *
 ;
 
@@ -250,7 +256,7 @@ begin;
 
 insert into performer(name, since_yr)
   values
-    ('David Bowie', 1974)  
+    ('Wolfgang Petry', 1974)  
   ON CONFLICT (name,since_yr) DO update set name = excluded.name
   returning *
 ;
@@ -258,7 +264,7 @@ insert into performer(name, since_yr)
 
 insert into artist(name, born_yr, origin_country, biography)
   values
-    ('David Bowie', 1974, 'USA', 'Super duper artist' ) ;
+    ('Wolfgang Petry', 1974, 'Germany', 'Super duper artist' ) ;
 ;
 commit;
 
@@ -288,7 +294,7 @@ insert into artist(name, born_yr, origin_country, biography)
 $$ LANGUAGE SQL;
 
 
-select * from i_artist('Heino', 1991, 'Germany', 'Geile Type') as t;
+select * from i_artist('Khaled', 1991, 'Germany', 'Geile Type') as t;
 
 --select * from i_artist('Heino', 1991, 'Geany', 'Geile Type') as t;
 
@@ -302,12 +308,13 @@ AS $$
       FROM generate_series(1, $1) ), '' ) 
 $$ LANGUAGE sql;
 
+
 insert into customer(customer_id, first_name, last_name, email) 
      Select g.id, 
             trunc(g.id * random() + 1),--chr(generate_series(65,90),
             random_text(7),--chr(generate_series(65,90),
             md5(random()::text) || '@' || md5(random()::text) || '.de' 
-       from generate_series(2,11) AS g(id)
+       from generate_series(2,100) AS g(id)
             ;
 
 select * from customer;
@@ -325,15 +332,15 @@ select * from customer;
 */
 select 
   xmlelement( name "InvoiceLine", 
-      xmlelement( name "ID", l.invoice_line_id),
+      xmlelement( name "ID", il.invoice_line_id),
       xmlelement( name "LineExtensionAmount", 
                   xmlattributes( 'EUR' as "currencyID"),
-                  l.unit_price
+                  il.unit_price
       ),
       xmlelement( name "Item",
           xmlelement( name "Description", 'a description' )
       )
-  )
-FROM invoice_line l;
+  ) as single_column
+FROM invoice_line as il;
 
   
