@@ -25,7 +25,7 @@ layout: default
 | 2017-12-20 | Laborübungstag: Arbeit am Projekt | -- | -- |
 | 2018-01-10 | Lesen und verstehn von [SQL code des Music Collection Projekts](./mcm-db/mcm-db.sql)  | -- | -- |
 | 2018-01-17 | Transaktionen und Normalisierung | [Vorlesung 10](vorlesung-10.html) | [Vorlesung 10](vorlesung-10.pdf) |
-| 2018-01-24 | tba | -- | -- |
+| 2018-01-24 | FAQ und finale Laborarbeit | -- | -- |
 | 2018-01-31 | Ab 10 Uhr: Projektvorstellungen | -- | -- | 
 
 ## Projekt
